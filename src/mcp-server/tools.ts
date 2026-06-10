@@ -16,7 +16,6 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import * as z from "zod";
 import { CloudinaryMediaGenerationCore } from "../core.js";
-import { allRequired } from "../lib/primitives.js";
 import { ConsoleLogger } from "./console-logger.js";
 import { MCPServerFlags } from "./flags.js";
 import { MCPScope, mcpScopes } from "./scopes.js";
@@ -474,27 +473,27 @@ export function buildSDK(
 ) {
   const flags = {
     ...cliFlags,
-    "username": resolveHeader(
+    "api-key": resolveHeader(
       headers,
-      "username",
+      "api-key",
       z.string(),
-      cliFlags["username"],
+      cliFlags["api-key"],
       disableStaticAuth,
     ),
-    "password": resolveHeader(
+    "api-secret": resolveHeader(
       headers,
-      "password",
+      "api-secret",
       z.string(),
-      cliFlags["password"],
+      cliFlags["api-secret"],
       disableStaticAuth,
     ),
   };
 
   return new CloudinaryMediaGenerationCore({
-    security: allRequired({
-      username: flags.username ?? "",
-      password: flags.password ?? "",
-    }),
+    security: {
+      api_key: flags["api-key"] ?? "",
+      api_secret: flags["api-secret"] ?? "",
+    },
     serverURL: cliFlags["server-url"],
     serverIdx: cliFlags["server-index"],
     debugLogger: logger.level === "debug"

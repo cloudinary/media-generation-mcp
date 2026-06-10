@@ -13,8 +13,8 @@ export interface MCPServerFlags {
   readonly tool?: string[];
   readonly mode?: "dynamic" | undefined;
   readonly "tool-annotations"?: string[] | undefined;
-  readonly username?: string | undefined;
-  readonly password?: string | undefined;
+  readonly "api-key"?: string | undefined;
+  readonly "api-secret"?: string | undefined;
   readonly "server-url"?: string | undefined;
   readonly "server-index"?: SDKOptions["serverIdx"];
 }

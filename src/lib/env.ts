@@ -8,15 +8,15 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
-  CLOUDINARY_USERNAME?: string | undefined;
-  CLOUDINARY_PASSWORD?: string | undefined;
+  CLOUDINARY_API_KEY?: string | undefined;
+  CLOUDINARY_API_SECRET?: string | undefined;
 
   CLOUDINARY_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env> = z.object({
-  CLOUDINARY_USERNAME: z.string().optional(),
-  CLOUDINARY_PASSWORD: z.string().optional(),
+  CLOUDINARY_API_KEY: z.string().optional(),
+  CLOUDINARY_API_SECRET: z.string().optional(),
 
   CLOUDINARY_DEBUG: z.coerce.boolean().optional(),
 });

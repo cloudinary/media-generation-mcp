@@ -8,7 +8,7 @@ import { encodeSimple } from "../lib/encodings.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import { APIError } from "../models/errors/apierror.js";
 import {
@@ -22,6 +22,7 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   GetGenerationTaskStatusRequest,
   GetGenerationTaskStatusRequest$zodSchema,
+  GetGenerationTaskStatusSecurity,
 } from "../models/getgenerationtaskstatusop.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -34,6 +35,7 @@ import { Result } from "../types/fp.js";
  */
 export function tasksGetGenerationTaskStatus(
   client$: CloudinaryMediaGenerationCore,
+  security: GetGenerationTaskStatusSecurity,
   cloud_name: string,
   task_id: string,
   options?: RequestOptions,
@@ -51,6 +53,7 @@ export function tasksGetGenerationTaskStatus(
 > {
   return new APIPromise($do(
     client$,
+    security,
     cloud_name,
     task_id,
     options,
@@ -59,6 +62,7 @@ export function tasksGetGenerationTaskStatus(
 
 async function $do(
   client$: CloudinaryMediaGenerationCore,
+  security: GetGenerationTaskStatusSecurity,
   cloud_name: string,
   task_id: string,
   options?: RequestOptions,
@@ -110,8 +114,16 @@ async function $do(
   const headers$ = new Headers(compactMap({
     Accept: "application/json",
   }));
-  const securityInput = await extractSecurity(client$._options.security);
-  const requestSecurity = resolveGlobalSecurity(securityInput);
+
+  const requestSecurity = resolveSecurity(
+    [
+      {
+        fieldName: "Authorization",
+        type: "apiKey:header",
+        value: security?.basicAuth,
+      },
+    ],
+  );
 
   const context = {
     options: client$._options,
@@ -119,7 +131,7 @@ async function $do(
     operationID: "get_generation_task_status",
     oAuth2Scopes: null,
     resolvedSecurity: requestSecurity,
-    securitySource: client$._options.security,
+    securitySource: security,
     retryConfig: options?.retries
       || client$._options.retryConfig
       || { strategy: "none" },

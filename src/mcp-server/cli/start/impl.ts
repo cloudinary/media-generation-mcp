@@ -6,8 +6,6 @@
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import express from "express";
-import { landingPageExpress } from "../../../landing-page.js";
-import { allRequired } from "../../../lib/primitives.js";
 import { LocalContext } from "../../cli.js";
 import {
   ConsoleLoggerLevel,
@@ -16,6 +14,8 @@ import {
 import { MCPServerFlags } from "../../flags.js";
 import { createMCPServer } from "../../server.js";
 import { buildAnnotationFilter } from "../../tools.js";
+
+import { landingPageExpress } from "../../../landing-page.js";
 
 interface StartCommandFlags extends MCPServerFlags {
   readonly transport: "stdio" | "sse";
@@ -55,10 +55,10 @@ async function startStdio(flags: StartCommandFlags) {
     allowedTools: flags.tool,
     dynamic: flags.mode === "dynamic",
     annotationFilter: buildAnnotationFilter(flags["tool-annotations"]),
-    security: allRequired({
-      username: flags.username ?? "",
-      password: flags.password ?? "",
-    }),
+    security: {
+      api_key: flags["api-key"] ?? "",
+      api_secret: flags["api-secret"] ?? "",
+    },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });
@@ -99,8 +99,9 @@ async function startSSE(cliFlags: StartCommandFlags) {
     const flags: StartCommandFlags = {
       ...cliFlags,
       // Security fields can be overridden via headers
-      "username": (req.headers["username"] as string) ?? cliFlags["username"],
-      "password": (req.headers["password"] as string) ?? cliFlags["password"],
+      "api-key": (req.headers["api_key"] as string) ?? cliFlags["api-key"],
+      "api-secret": (req.headers["api_secret"] as string)
+        ?? cliFlags["api-secret"],
     };
 
     // Create a new MCP server for this connection with its auth
@@ -109,10 +110,10 @@ async function startSSE(cliFlags: StartCommandFlags) {
       allowedTools: flags.tool,
       dynamic: flags.mode === "dynamic",
       annotationFilter: buildAnnotationFilter(flags["tool-annotations"]),
-      security: allRequired({
-        username: flags.username ?? "",
-        password: flags.password ?? "",
-      }),
+      security: {
+        api_key: flags["api-key"] ?? "",
+        api_secret: flags["api-secret"] ?? "",
+      },
       serverURL: flags["server-url"],
       serverIdx: flags["server-index"],
     });

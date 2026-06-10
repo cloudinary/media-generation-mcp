@@ -246,11 +246,14 @@ export function resolveGlobalSecurity(
   let inputs: SecurityInput[][] = [
     [
       {
-        type: "http:basic",
-        value: {
-          username: security?.username || env().CLOUDINARY_USERNAME,
-          password: security?.password || env().CLOUDINARY_PASSWORD,
-        },
+        fieldName: "api_key",
+        type: "http:custom",
+        value: security?.api_key || env().CLOUDINARY_API_KEY,
+      },
+      {
+        fieldName: "api_secret",
+        type: "http:custom",
+        value: security?.api_secret || env().CLOUDINARY_API_SECRET,
       },
     ],
   ];

@@ -5,13 +5,12 @@
 
 import * as z from "zod";
 
-export type Security = { username: string; password: string };
+export type Security = {
+  api_key?: string | undefined;
+  api_secret?: string | undefined;
+};
 
 export const Security$zodSchema: z.ZodType<Security> = z.object({
-  password: z.string().describe(
-    "Basic authentication using Cloudinary API Key and API Secret. password",
-  ),
-  username: z.string().describe(
-    "Basic authentication using Cloudinary API Key and API Secret. username",
-  ),
+  api_key: z.string().optional(),
+  api_secret: z.string().optional(),
 });

@@ -51,17 +51,17 @@ export const serveCommand = buildCommand({
         optional: true,
         parse: (value) => value.split(",").map(s => s.trim()),
       },
-      username: {
+      "api-key": {
         kind: "parsed",
-        brief: "Sets the Username auth field for the API",
+        brief: "Sets the api_key auth field for the API",
         optional: true,
         parse: (value) => {
           return z.string().parse(value);
         },
       },
-      password: {
+      "api-secret": {
         kind: "parsed",
-        brief: "Sets the Password auth field for the API",
+        brief: "Sets the api_secret auth field for the API",
         optional: true,
         parse: (value) => {
           return z.string().parse(value);

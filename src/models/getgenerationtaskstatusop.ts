@@ -14,6 +14,14 @@ import {
   RateLimitedResponse$zodSchema,
 } from "./ratelimitedresponse.js";
 
+export type GetGenerationTaskStatusSecurity = { basicAuth: string };
+
+export const GetGenerationTaskStatusSecurity$zodSchema: z.ZodType<
+  GetGenerationTaskStatusSecurity
+> = z.object({
+  basicAuth: z.string().describe("API Key"),
+});
+
 export type GetGenerationTaskStatusRequest = {
   cloud_name: string;
   task_id: string;
