@@ -6,10 +6,16 @@
 import { dlv } from "./dlv.js";
 
 import * as z from "zod";
+import { SDKOptions } from "./config.js";
 
 export interface Env {
   CLOUDINARY_API_KEY?: string | undefined;
   CLOUDINARY_API_SECRET?: string | undefined;
+
+  /**
+   * Sets the cloud_name parameter for all supported operations
+   */
+  CLOUDINARY_CLOUD_NAME?: string | undefined;
 
   CLOUDINARY_DEBUG?: boolean | undefined;
 }
@@ -17,6 +23,8 @@ export interface Env {
 export const envSchema: z.ZodType<Env> = z.object({
   CLOUDINARY_API_KEY: z.string().optional(),
   CLOUDINARY_API_SECRET: z.string().optional(),
+
+  CLOUDINARY_CLOUD_NAME: z.string().optional(),
 
   CLOUDINARY_DEBUG: z.coerce.boolean().optional(),
 });
@@ -41,4 +49,19 @@ export function env(): Env {
  */
 export function resetEnv() {
   envMemo = undefined;
+}
+
+/**
+ * Populates global parameters with environment variables.
+ */
+export function fillGlobals(options: SDKOptions): SDKOptions {
+  const clone = { ...options };
+
+  const envVars = env();
+
+  if (typeof envVars.CLOUDINARY_CLOUD_NAME !== "undefined") {
+    clone.cloud_name ??= envVars.CLOUDINARY_CLOUD_NAME;
+  }
+
+  return clone;
 }

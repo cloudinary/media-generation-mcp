@@ -67,6 +67,15 @@ export const startCommand = buildCommand({
           return z.string().parse(value);
         },
       },
+      "cloud-name": {
+        kind: "parsed",
+        brief:
+          "Allows setting the cloud_name parameter for all supported operations",
+        optional: true,
+        parse: (value) => {
+          return z.string().parse(value);
+        },
+      },
       "server-url": {
         kind: "parsed",
         brief: "Overrides the default server URL used by the SDK",

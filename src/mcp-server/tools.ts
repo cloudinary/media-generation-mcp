@@ -495,6 +495,13 @@ export function buildSDK(
       api_secret: flags["api-secret"] ?? "",
     },
     serverURL: cliFlags["server-url"],
+    cloud_name: resolveHeader(
+      headers,
+      "cloud-name",
+      z.string(),
+      cliFlags["cloud-name"],
+      disableStaticAuth,
+    ),
     serverIdx: cliFlags["server-index"],
     debugLogger: logger.level === "debug"
       ? {

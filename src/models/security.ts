@@ -5,12 +5,9 @@
 
 import * as z from "zod";
 
-export type Security = {
-  api_key?: string | undefined;
-  api_secret?: string | undefined;
-};
+export type Security = { api_key: string; api_secret: string };
 
 export const Security$zodSchema: z.ZodType<Security> = z.object({
-  api_key: z.string().optional(),
-  api_secret: z.string().optional(),
+  api_key: z.string(),
+  api_secret: z.string(),
 });

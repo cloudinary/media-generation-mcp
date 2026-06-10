@@ -15,6 +15,7 @@ export interface MCPServerFlags {
   readonly "tool-annotations"?: string[] | undefined;
   readonly "api-key"?: string | undefined;
   readonly "api-secret"?: string | undefined;
+  readonly "cloud-name"?: SDKOptions["cloud_name"] | undefined;
   readonly "server-url"?: string | undefined;
   readonly "server-index"?: SDKOptions["serverIdx"];
 }

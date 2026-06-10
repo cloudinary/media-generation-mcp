@@ -20,10 +20,9 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
-  GenerateImageRequestRequest,
-  GenerateImageRequestRequest$zodSchema,
-} from "../models/generateimageop.js";
-import { GenerateImageRequest } from "../models/generateimagerequest.js";
+  GenerateImageRequest,
+  GenerateImageRequest$zodSchema,
+} from "../models/generateimagerequest.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -41,8 +40,7 @@ import { Result } from "../types/fp.js";
  */
 export function generationGenerateImage(
   client$: CloudinaryMediaGenerationCore,
-  cloud_name: string,
-  GenerateImageRequest: GenerateImageRequest,
+  request: GenerateImageRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -58,16 +56,14 @@ export function generationGenerateImage(
 > {
   return new APIPromise($do(
     client$,
-    cloud_name,
-    GenerateImageRequest,
+    request,
     options,
   ));
 }
 
 async function $do(
   client$: CloudinaryMediaGenerationCore,
-  cloud_name: string,
-  GenerateImageRequest: GenerateImageRequest,
+  request: GenerateImageRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -84,26 +80,19 @@ async function $do(
     APICall,
   ]
 > {
-  const input$: GenerateImageRequestRequest = {
-    cloud_name: cloud_name,
-    GenerateImageRequest: GenerateImageRequest,
-  };
-
   const parsed$ = safeParse(
-    input$,
-    (value$) => GenerateImageRequestRequest$zodSchema.parse(value$),
+    request,
+    (value$) => GenerateImageRequest$zodSchema.parse(value$),
     "Input validation failed",
   );
   if (!parsed$.ok) {
     return [parsed$, { status: "invalid" }];
   }
   const payload$ = parsed$.value;
-  const body$ = encodeJSON("body", payload$.GenerateImageRequest, {
-    explode: true,
-  });
+  const body$ = encodeJSON("body", payload$, { explode: true });
 
   const pathParams$ = {
-    cloud_name: encodeSimple("cloud_name", payload$.cloud_name, {
+    cloud_name: encodeSimple("cloud_name", client$._options.cloud_name, {
       explode: false,
       charEncoding: "percent",
     }),

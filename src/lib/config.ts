@@ -22,6 +22,11 @@ export type SDKOptions = {
    */
   security?: Security | (() => Promise<Security>) | undefined;
 
+  /**
+   * Allows setting the cloud_name parameter for all supported operations
+   */
+  cloud_name?: string | undefined;
+
   httpClient?: HTTPClient;
   /**
    * Allows overriding the default server used by the SDK
@@ -63,8 +68,8 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "1.0.0",
-  sdkVersion: "0.2.0",
+  sdkVersion: "0.3.0",
   genVersion: "2.900.0",
   userAgent:
-    "speakeasy-sdk/mcp-typescript 0.2.0 2.900.0 1.0.0 @cloudinary/media-generation-mcp",
+    "speakeasy-sdk/mcp-typescript 0.3.0 2.900.0 1.0.0 @cloudinary/media-generation-mcp",
 } as const;

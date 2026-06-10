@@ -15,7 +15,7 @@ import {
 import { stringToBase64 } from "./base64.js";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "./config.js";
 import { encodeForm } from "./encodings.js";
-import { env } from "./env.js";
+import { env, fillGlobals } from "./env.js";
 import {
   HTTPClient,
   isAbortError,
@@ -109,7 +109,7 @@ export class ClientSDK {
     this._baseURL = url;
     this.#httpClient = options.httpClient || defaultHttpClient;
 
-    this._options = { ...options, hooks: this.#hooks };
+    this._options = { ...fillGlobals(options), hooks: this.#hooks };
 
     this.#logger = this._options.debugLogger;
     if (!this.#logger && env().CLOUDINARY_DEBUG) {

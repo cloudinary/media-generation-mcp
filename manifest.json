@@ -42,7 +42,9 @@
         "--api-key",
         "${user_config.api_key}",
         "--api-secret",
-        "${user_config.api_secret}"
+        "${user_config.api_secret}",
+        "--cloud-name",
+        "${user_config.cloud_name}"
       ]
     }
   },
@@ -68,11 +70,15 @@
       "type": "string"
     }
   },
-  "version": "0.2.0",
+  "version": "0.3.0",
   "tools": [
     {
       "name": "generation-generate-image",
       "description": "Generate Image\n\nGenerate an image from a text prompt using AI models.\n\nThe API resolves which model to invoke using a layered override system:\n1. If `explicit_model` is provided, use that exact model.\n2. If `model_family` + `quality_tier` are provided, look up the model in the Model Matrix.\n3. If only `model_family` is provided, default to `quality_tier: \"standard\"`.\n4. If no model params are provided, use the global default (nano_banana / standard).\n"
+    },
+    {
+      "name": "tasks-get-generation-task-status",
+      "description": "Get generation task status\n\nGet the status of a generation task."
     }
   ]
 }

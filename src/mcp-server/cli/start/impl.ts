@@ -59,6 +59,7 @@ async function startStdio(flags: StartCommandFlags) {
       api_key: flags["api-key"] ?? "",
       api_secret: flags["api-secret"] ?? "",
     },
+    cloud_name: flags["cloud-name"],
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });
@@ -114,6 +115,7 @@ async function startSSE(cliFlags: StartCommandFlags) {
         api_key: flags["api-key"] ?? "",
         api_secret: flags["api-secret"] ?? "",
       },
+      cloud_name: flags["cloud-name"],
       serverURL: flags["server-url"],
       serverIdx: flags["server-index"],
     });

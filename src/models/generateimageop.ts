@@ -10,10 +10,6 @@ import {
 } from "./asyncoperationacceptedresponse.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
 import {
-  GenerateImageRequest,
-  GenerateImageRequest$zodSchema,
-} from "./generateimagerequest.js";
-import {
   GenerateImageResponse,
   GenerateImageResponse$zodSchema,
 } from "./generateimageresponse.js";
@@ -22,21 +18,14 @@ import {
   RateLimitedResponse$zodSchema,
 } from "./ratelimitedresponse.js";
 
-export type GenerateImageRequestRequest = {
-  cloud_name: string;
-  GenerateImageRequest: GenerateImageRequest;
-};
+export type GenerateImageGlobals = { cloud_name?: string | undefined };
 
-export const GenerateImageRequestRequest$zodSchema: z.ZodType<
-  GenerateImageRequestRequest
-> = z.object({
-  GenerateImageRequest: GenerateImageRequest$zodSchema.describe(
-    "A JSON object containing the generation request parameters.",
-  ),
-  cloud_name: z.string().describe(
-    "The cloud name of your Cloudinary product environment.",
-  ),
-});
+export const GenerateImageGlobals$zodSchema: z.ZodType<GenerateImageGlobals> = z
+  .object({
+    cloud_name: z.string().describe(
+      "The cloud name of your product environment.",
+    ).optional(),
+  });
 
 export type GenerateImageResponseResponse =
   | GenerateImageResponse

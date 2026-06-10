@@ -71,6 +71,7 @@ async function startStreamableHTTP(cliFlags: ServeCommandFlags) {
       serverURL: cliFlags["server-url"],
       getSDK: () =>
         buildSDK(headers, cliFlags, cliFlags["disable-static-auth"], logger),
+      cloud_name: cliFlags["cloud-name"],
       serverIdx: cliFlags["server-index"],
     });
 

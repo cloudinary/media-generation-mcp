@@ -3,16 +3,12 @@
  * @generated-id: 358095938b5f
  */
 
-import * as z from "zod";
 import { generationGenerateImage } from "../../funcs/generationGenerateImage.js";
 import { GenerateImageRequest$zodSchema } from "../../models/generateimagerequest.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  cloud_name: z.string().describe(
-    "The cloud name of your Cloudinary product environment.",
-  ),
-  GenerateImageRequest: GenerateImageRequest$zodSchema.describe(
+  request: GenerateImageRequest$zodSchema.describe(
     `A JSON object containing the generation request parameters.`,
   ),
 };
@@ -40,8 +36,7 @@ The API resolves which model to invoke using a layered override system:
   tool: async (client, args, ctx) => {
     const [result] = await generationGenerateImage(
       client,
-      args.cloud_name,
-      args.GenerateImageRequest,
+      args.request,
       { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 

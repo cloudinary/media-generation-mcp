@@ -14,25 +14,22 @@ import {
   RateLimitedResponse$zodSchema,
 } from "./ratelimitedresponse.js";
 
-export type GetGenerationTaskStatusSecurity = { basicAuth: string };
+export type GetGenerationTaskStatusGlobals = {
+  cloud_name?: string | undefined;
+};
 
-export const GetGenerationTaskStatusSecurity$zodSchema: z.ZodType<
-  GetGenerationTaskStatusSecurity
+export const GetGenerationTaskStatusGlobals$zodSchema: z.ZodType<
+  GetGenerationTaskStatusGlobals
 > = z.object({
-  basicAuth: z.string().describe("API Key"),
+  cloud_name: z.string().describe("The cloud name of your product environment.")
+    .optional(),
 });
 
-export type GetGenerationTaskStatusRequest = {
-  cloud_name: string;
-  task_id: string;
-};
+export type GetGenerationTaskStatusRequest = { task_id: string };
 
 export const GetGenerationTaskStatusRequest$zodSchema: z.ZodType<
   GetGenerationTaskStatusRequest
 > = z.object({
-  cloud_name: z.string().describe(
-    "The cloud name of your Cloudinary product environment.",
-  ),
   task_id: z.string().describe("The ID of the generation task."),
 });
 
