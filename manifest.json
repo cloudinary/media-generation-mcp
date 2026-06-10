@@ -1,0 +1,95 @@
+{
+  "author": {
+    "name": "Cloudinary",
+    "url": "https://cloudinary.com"
+  },
+  "description": "Cloudinary Media Generation MCP Server",
+  "display_name": "Cloudinary Media Generation",
+  "documentation": "https://cloudinary.com/documentation/cloudinary_llm_mcp",
+  "homepage": "https://github.com/cloudinary/media-generation-mcp",
+  "icon": "icon.png",
+  "keywords": [
+    "cloudinary",
+    "media generation",
+    "ai",
+    "images",
+    "generation",
+    "media"
+  ],
+  "license": "MIT",
+  "long_description": "A comprehensive MCP server for Cloudinary's Media Generation API. Generate images from text prompts using various AI models including FLUX, Recraft, GPT Image, and Nano Banana.",
+  "manifest_version": "0.3",
+  "name": "@cloudinary/media-generation-mcp",
+  "privacy_policies": [
+    "https://cloudinary.com/privacy"
+  ],
+  "prompts": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudinary/media-generation-mcp.git"
+  },
+  "screenshots": [
+    "icon.png"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "./bin/mcp-server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/bin/mcp-server.js",
+        "start",
+        "--username",
+        "${user_config.username}",
+        "--password",
+        "${user_config.password}"
+      ]
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "description": "Your Cloudinary API key. Found in Dashboard → Settings → Access Keys.",
+      "required": true,
+      "title": "API Key",
+      "type": "string"
+    },
+    "api_secret": {
+      "description": "Your Cloudinary API secret. Found in Dashboard → Settings → Access Keys.",
+      "required": true,
+      "sensitive": true,
+      "title": "API Secret",
+      "type": "string"
+    },
+    "cloud_name": {
+      "description": "Your Cloudinary cloud name. Find it in your Cloudinary Dashboard.",
+      "required": true,
+      "title": "Cloud Name",
+      "type": "string"
+    },
+    "password": {
+      "type": "string",
+      "title": "Password",
+      "description": "The Password to use for the request",
+      "required": true,
+      "sensitive": true
+    },
+    "username": {
+      "type": "string",
+      "title": "Username",
+      "description": "The Username to use for the request",
+      "required": true,
+      "sensitive": true
+    }
+  },
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "generation-generate-image",
+      "description": "Generate Image\n\nGenerate an image from a text prompt using AI models.\n\nThe API resolves which model to invoke using a layered override system:\n1. If `explicit_model` is provided, use that exact model.\n2. If `model_family` + `quality_tier` are provided, look up the model in the Model Matrix.\n3. If only `model_family` is provided, default to `quality_tier: \"standard\"`.\n4. If no model params are provided, use the global default (nano_banana / standard).\n"
+    },
+    {
+      "name": "tasks-get-generation-task-status",
+      "description": "Get generation task status\n\nGet the status of a generation task."
+    }
+  ]
+}
