@@ -19,6 +19,7 @@ import {
   registerDynamicTools,
 } from "./tools.js";
 import { tool$generationGenerateImage } from "./tools/generationGenerateImage.js";
+import { tool$tasksGetGenerationTaskStatus } from "./tools/tasksGetGenerationTaskStatus.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -34,7 +35,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "CloudinaryMediaGeneration",
-    version: "0.4.0",
+    version: "0.5.0",
   });
 
   const getClient = deps.getSDK || (() =>
@@ -81,6 +82,7 @@ export function createMCPServer(deps: {
   void register; // suppress unused warnings
 
   tool(tool$generationGenerateImage);
+  tool(tool$tasksGetGenerationTaskStatus);
 
   if (deps.dynamic) {
     registerDynamicTools(deps.logger, server, getClient, toolMap, scopes);

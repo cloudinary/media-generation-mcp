@@ -22,14 +22,6 @@ export const GetGenerationTaskStatusGlobals$zodSchema: z.ZodType<
     .optional(),
 });
 
-export type GetGenerationTaskStatusSecurity = { basicAuth: string };
-
-export const GetGenerationTaskStatusSecurity$zodSchema: z.ZodType<
-  GetGenerationTaskStatusSecurity
-> = z.object({
-  basicAuth: z.string().describe("API Key"),
-});
-
 export type GetGenerationTaskStatusRequest = { task_id: string };
 
 export const GetGenerationTaskStatusRequest$zodSchema: z.ZodType<
