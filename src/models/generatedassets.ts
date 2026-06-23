@@ -4,23 +4,15 @@
  */
 
 import * as z from "zod";
-import {
-  GeneratedImageData,
-  GeneratedImageData$zodSchema,
-} from "./generatedimagedata.js";
+import { GeneratedAsset, GeneratedAsset$zodSchema } from "./generatedasset.js";
 
 /**
- * Wrapper holding the array of generated assets. Always an array even
- *
- * @remarks
- * though `n` is currently capped at 1 — reserves the multi-output shape.
+ * Wrapper holding the array of generated assets.
  */
-export type GeneratedAssets = { assets: Array<GeneratedImageData> };
+export type GeneratedAssets = { assets: Array<GeneratedAsset> };
 
 export const GeneratedAssets$zodSchema: z.ZodType<GeneratedAssets> = z.object({
-  assets: z.array(GeneratedImageData$zodSchema).describe(
-    "The generated assets. One element today (n capped at 1).",
+  assets: z.array(GeneratedAsset$zodSchema).describe(
+    "The generated assets. Currently a single asset is returned.",
   ),
-}).describe(
-  "Wrapper holding the array of generated assets. Always an array even\nthough `n` is currently capped at 1 — reserves the multi-output shape.\n",
-);
+}).describe("Wrapper holding the array of generated assets.");

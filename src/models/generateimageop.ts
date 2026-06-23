@@ -4,19 +4,16 @@
  */
 
 import * as z from "zod";
-import {
-  AsyncOperationAcceptedResponse,
-  AsyncOperationAcceptedResponse$zodSchema,
-} from "./asyncoperationacceptedresponse.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
 import {
-  GenerateImageResponse,
-  GenerateImageResponse$zodSchema,
-} from "./generateimageresponse.js";
+  GenerateImageResult,
+  GenerateImageResult$zodSchema,
+} from "./generateimageresult.js";
 import {
   RateLimitedResponse,
   RateLimitedResponse$zodSchema,
 } from "./ratelimitedresponse.js";
+import { TaskResponse, TaskResponse$zodSchema } from "./taskresponse.js";
 
 export type GenerateImageGlobals = { cloud_name?: string | undefined };
 
@@ -27,17 +24,16 @@ export const GenerateImageGlobals$zodSchema: z.ZodType<GenerateImageGlobals> = z
     ).optional(),
   });
 
-export type GenerateImageResponseResponse =
-  | GenerateImageResponse
-  | AsyncOperationAcceptedResponse
+export type GenerateImageResponse =
   | ErrorResponse
-  | RateLimitedResponse;
+  | RateLimitedResponse
+  | GenerateImageResult
+  | TaskResponse;
 
-export const GenerateImageResponseResponse$zodSchema: z.ZodType<
-  GenerateImageResponseResponse
-> = z.union([
-  GenerateImageResponse$zodSchema,
-  AsyncOperationAcceptedResponse$zodSchema,
-  ErrorResponse$zodSchema,
-  RateLimitedResponse$zodSchema,
-]);
+export const GenerateImageResponse$zodSchema: z.ZodType<GenerateImageResponse> =
+  z.union([
+    ErrorResponse$zodSchema,
+    RateLimitedResponse$zodSchema,
+    GenerateImageResult$zodSchema,
+    TaskResponse$zodSchema,
+  ]);

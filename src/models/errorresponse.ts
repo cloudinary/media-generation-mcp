@@ -4,17 +4,18 @@
  */
 
 import * as z from "zod";
-import { ErrorObject, ErrorObject$zodSchema } from "./errorobject.js";
+import { ErrorT, ErrorT$zodSchema } from "./error.js";
 
 /**
- * Wrapper for error responses. The shape of `error` is the same across status codes.
+ * Wrapper for error responses; includes the error object and a request_id for correlation.
  */
-export type ErrorResponse = { error?: ErrorObject | null | undefined };
+export type ErrorResponse = { error: ErrorT; request_id: string };
 
 export const ErrorResponse$zodSchema: z.ZodType<ErrorResponse> = z.object({
-  error: ErrorObject$zodSchema.nullable().optional().describe(
-    "Details of an error. Always carries a category, a stable code, and a human-readable message.",
+  error: ErrorT$zodSchema.describe(
+    "Details of an error, including a coarse category for retry logic, a stable error code, and a human-readable message.",
   ),
+  request_id: z.string(),
 }).describe(
-  "Wrapper for error responses. The shape of `error` is the same across status codes.",
+  "Wrapper for error responses; includes the error object and a request_id for correlation.",
 );

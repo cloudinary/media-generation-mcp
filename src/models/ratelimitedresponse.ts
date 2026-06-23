@@ -4,25 +4,25 @@
  */
 
 import * as z from "zod";
-import { ErrorObject, ErrorObject$zodSchema } from "./errorobject.js";
-import { LimitsObject, LimitsObject$zodSchema } from "./limitsobject.js";
+import { ErrorT, ErrorT$zodSchema } from "./error.js";
+import { Limits, Limits$zodSchema } from "./limits.js";
 
 /**
- * Wrapper for rate-limit metadata. Present on successful generations and on 429 responses.
+ * Rate limited.
  */
 export type RateLimitedResponse = {
-  error?: ErrorObject | null | undefined;
-  limits?: LimitsObject | null | undefined;
+  error: ErrorT;
+  limits?: Limits | undefined;
+  request_id: string;
 };
 
 export const RateLimitedResponse$zodSchema: z.ZodType<RateLimitedResponse> = z
   .object({
-    error: ErrorObject$zodSchema.nullable().optional().describe(
-      "Details of an error. Always carries a category, a stable code, and a human-readable message.",
+    error: ErrorT$zodSchema.describe(
+      "Details of an error, including a coarse category for retry logic, a stable error code, and a human-readable message.",
     ),
-    limits: LimitsObject$zodSchema.nullable().optional().describe(
-      "Rate limit information for the account's generation quota.",
+    limits: Limits$zodSchema.optional().describe(
+      "Rate limit information for the account's add-on quotas.",
     ),
-  }).describe(
-    "Wrapper for rate-limit metadata. Present on successful generations and on 429 responses.",
-  );
+    request_id: z.string(),
+  }).describe("Rate limited.");

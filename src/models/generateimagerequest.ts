@@ -4,108 +4,9 @@
  */
 
 import * as z from "zod";
-import { ClosedEnum } from "../types/enums.js";
-
-/**
- * Selects the model family:
- *
- * @remarks
- * * `flux` — Photorealistic (FLUX.2 Klein 9B / FLUX.2 Pro).
- * * `recraft` — Vector / Illustration (Recraft V3 / Recraft V4).
- * * `gpt_image` — Campaign / Marketing (GPT Image 1 Mini / GPT Image 2).
- * * `nano_banana` — Fast Draft (Nano Banana / Nano Banana 2).
- */
-export const ModelFamily = {
-  Flux: "flux",
-  Recraft: "recraft",
-  GptImage: "gpt_image",
-  NanoBanana: "nano_banana",
-} as const;
-/**
- * Selects the model family:
- *
- * @remarks
- * * `flux` — Photorealistic (FLUX.2 Klein 9B / FLUX.2 Pro).
- * * `recraft` — Vector / Illustration (Recraft V3 / Recraft V4).
- * * `gpt_image` — Campaign / Marketing (GPT Image 1 Mini / GPT Image 2).
- * * `nano_banana` — Fast Draft (Nano Banana / Nano Banana 2).
- */
-export type ModelFamily = ClosedEnum<typeof ModelFamily>;
-
-export const ModelFamily$zodSchema = z.enum([
-  "flux",
-  "recraft",
-  "gpt_image",
-  "nano_banana",
-]).describe(
-  "Selects the model family:\n* `flux` — Photorealistic (FLUX.2 Klein 9B / FLUX.2 Pro).\n* `recraft` — Vector / Illustration (Recraft V3 / Recraft V4).\n* `gpt_image` — Campaign / Marketing (GPT Image 1 Mini / GPT Image 2).\n* `nano_banana` — Fast Draft (Nano Banana / Nano Banana 2).\n",
-);
-
-/**
- * Selects a model variant within the family:
- *
- * @remarks
- * * `standard` — Faster and cheaper.
- * * `premium` — Higher quality.
- */
-export const QualityTier = {
-  Standard: "standard",
-  Premium: "premium",
-} as const;
-/**
- * Selects a model variant within the family:
- *
- * @remarks
- * * `standard` — Faster and cheaper.
- * * `premium` — Higher quality.
- */
-export type QualityTier = ClosedEnum<typeof QualityTier>;
-
-export const QualityTier$zodSchema = z.enum([
-  "standard",
-  "premium",
-]).describe(
-  "Selects a model variant within the family:\n* `standard` — Faster and cheaper.\n* `premium` — Higher quality.\n",
-);
-
-/**
- * Overrides model_family + quality_tier with a specific model identifier.
- *
- * @remarks
- * When provided, model_family and quality_tier are ignored.
- * Omit the field entirely (rather than sending null) to fall back to family/tier resolution.
- */
-export const ExplicitModel = {
-  NanoBanana: "nano-banana",
-  NanoBanana2: "nano-banana-2",
-  Flux2Klein9b: "flux-2-klein-9b",
-  Flux2Pro: "flux-2-pro",
-  RecraftV3: "recraft-v3",
-  RecraftV4: "recraft-v4",
-  GptImage1Mini: "gpt-image-1-mini",
-  GptImage2: "gpt-image-2",
-} as const;
-/**
- * Overrides model_family + quality_tier with a specific model identifier.
- *
- * @remarks
- * When provided, model_family and quality_tier are ignored.
- * Omit the field entirely (rather than sending null) to fall back to family/tier resolution.
- */
-export type ExplicitModel = ClosedEnum<typeof ExplicitModel>;
-
-export const ExplicitModel$zodSchema = z.enum([
-  "nano-banana",
-  "nano-banana-2",
-  "flux-2-klein-9b",
-  "flux-2-pro",
-  "recraft-v3",
-  "recraft-v4",
-  "gpt-image-1-mini",
-  "gpt-image-2",
-]).describe(
-  "Overrides model_family + quality_tier with a specific model identifier.\nWhen provided, model_family and quality_tier are ignored.\nOmit the field entirely (rather than sending null) to fall back to family/tier resolution.\n",
-);
+import { ImageSize, ImageSize$zodSchema } from "./imagesize.js";
+import { ModelSelection, ModelSelection$zodSchema } from "./modelselection.js";
+import { Target, Target$zodSchema } from "./target.js";
 
 /**
  * Parameters for an image-generation request. Only `prompt` is required;
@@ -115,11 +16,9 @@ export const ExplicitModel$zodSchema = z.enum([
  */
 export type GenerateImageRequest = {
   prompt: string;
-  model_family?: ModelFamily | undefined;
-  quality_tier?: QualityTier | undefined;
-  explicit_model?: ExplicitModel | undefined;
-  width?: number | null | undefined;
-  height?: number | null | undefined;
+  model?: ModelSelection | undefined;
+  image_size?: ImageSize | undefined;
+  target?: Target | undefined;
   seed?: number | null | undefined;
   async?: boolean | undefined;
   notification_url?: string | undefined;
@@ -128,16 +27,13 @@ export type GenerateImageRequest = {
 export const GenerateImageRequest$zodSchema: z.ZodType<GenerateImageRequest> = z
   .object({
     async: z.boolean().default(false).describe(
-      "Whether to perform the generation asynchronously.\nIf set to true, the API returns immediately and the generation is done in the background.\nOnce generation is complete, a webhook notification is sent to the specified URL and/or to the URLs defined in the cloud's settings.\n",
+      "Whether to perform the generation asynchronously.\nWhen true, the API returns immediately with a 202 and completes in the background.\nOnce complete, a webhook notification is sent to the specified URL and/or to the URLs defined in the product environment's settings.\n",
     ),
-    explicit_model: ExplicitModel$zodSchema.optional().describe(
-      "Overrides model_family + quality_tier with a specific model identifier.\nWhen provided, model_family and quality_tier are ignored.\nOmit the field entirely (rather than sending null) to fall back to family/tier resolution.\n",
+    image_size: ImageSize$zodSchema.optional().describe(
+      "Desired output size, given in **one** of two mutually exclusive forms:\n\n  * `DimensionsImageSize`: `width` and `height` in pixels, for precise\n    control.\n  * `DeclarativeImageSize`: `aspect_ratio` (and an optional `resolution`\n    tier), resolved server-side to the closest size the chosen model\n    supports. This is the portable form: most providers natively accept\n    an aspect ratio plus a resolution tier rather than raw pixels.\n\nOmit `image_size` entirely to use the model's default size.\n",
     ),
-    height: z.int().nullable().optional().describe(
-      "Desired image height in pixels. Passed through to the underlying model.",
-    ),
-    model_family: ModelFamily$zodSchema.default("nano_banana").describe(
-      "Selects the model family:\n* `flux` — Photorealistic (FLUX.2 Klein 9B / FLUX.2 Pro).\n* `recraft` — Vector / Illustration (Recraft V3 / Recraft V4).\n* `gpt_image` — Campaign / Marketing (GPT Image 1 Mini / GPT Image 2).\n* `nano_banana` — Fast Draft (Nano Banana / Nano Banana 2).\n",
+    model: ModelSelection$zodSchema.optional().describe(
+      "Selects the model, in one of two mutually exclusive forms (omit to use\nthe global default):\n  * `ModelByFamily`: `family` (+ optional `tier`); the stable-over-time\n    selector.\n  * `ModelById`: an explicit `id`, pinning one exact model.\n",
     ),
     notification_url: z.string().optional().describe(
       "The webhook URL to notify when the generation is complete. Only relevant when `async` is set to true.",
@@ -145,14 +41,11 @@ export const GenerateImageRequest$zodSchema: z.ZodType<GenerateImageRequest> = z
     prompt: z.string().describe(
       "The text description of the image to generate.",
     ),
-    quality_tier: QualityTier$zodSchema.default("standard").describe(
-      "Selects a model variant within the family:\n* `standard` — Faster and cheaper.\n* `premium` — Higher quality.\n",
-    ),
     seed: z.int().nullable().optional().describe(
       "Seed for reproducible generation. Supported by most models.\nSilently ignored by models that don't support it.\n",
     ),
-    width: z.int().nullable().optional().describe(
-      "Desired image width in pixels. Passed through to the underlying model.",
+    target: Target$zodSchema.optional().describe(
+      "Where to store the generated output, determined by `target_type`.\nOptional; defaults to a `temporary` target when omitted.\n",
     ),
   }).describe(
     "Parameters for an image-generation request. Only `prompt` is required;\nall other fields fall back to documented defaults.\n",

@@ -15,15 +15,14 @@ const args = {
 
 export const tool$generationGenerateImage: ToolDefinition<typeof args> = {
   name: "generation-generate-image",
-  description: `Generate Image
+  description: `Generate an image
 
 Generate an image from a text prompt using AI models.
 
-The API resolves which model to invoke using a layered override system:
-1. If \`explicit_model\` is provided, use that exact model.
-2. If \`model_family\` + \`quality_tier\` are provided, look up the model in the Model Matrix.
-3. If only \`model_family\` is provided, default to \`quality_tier: "standard"\`.
-4. If no model params are provided, use the global default (nano_banana / standard).
+The model is selected via the optional \`model\` object:
+1. If \`model.id\` is provided, use that exact model.
+2. Else if \`model.family\` (+ optional \`model.tier\`) is provided, resolve via the model registry; a missing tier defaults to \`standard\`.
+3. If \`model\` is omitted, use the global default (nano-banana / standard).
 `,
   annotations: {
     "title": "",

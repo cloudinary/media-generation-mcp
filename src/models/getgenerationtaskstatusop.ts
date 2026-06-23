@@ -6,13 +6,10 @@
 import * as z from "zod";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
 import {
-  GetTaskStatusResponse,
-  GetTaskStatusResponse$zodSchema,
-} from "./gettaskstatusresponse.js";
-import {
   RateLimitedResponse,
   RateLimitedResponse$zodSchema,
 } from "./ratelimitedresponse.js";
+import { TaskResponse, TaskResponse$zodSchema } from "./taskresponse.js";
 
 export type GetGenerationTaskStatusGlobals = {
   cloud_name?: string | undefined;
@@ -25,6 +22,14 @@ export const GetGenerationTaskStatusGlobals$zodSchema: z.ZodType<
     .optional(),
 });
 
+export type GetGenerationTaskStatusSecurity = { basicAuth: string };
+
+export const GetGenerationTaskStatusSecurity$zodSchema: z.ZodType<
+  GetGenerationTaskStatusSecurity
+> = z.object({
+  basicAuth: z.string().describe("API Key"),
+});
+
 export type GetGenerationTaskStatusRequest = { task_id: string };
 
 export const GetGenerationTaskStatusRequest$zodSchema: z.ZodType<
@@ -34,14 +39,14 @@ export const GetGenerationTaskStatusRequest$zodSchema: z.ZodType<
 });
 
 export type GetGenerationTaskStatusResponse =
-  | GetTaskStatusResponse
   | ErrorResponse
-  | RateLimitedResponse;
+  | RateLimitedResponse
+  | TaskResponse;
 
 export const GetGenerationTaskStatusResponse$zodSchema: z.ZodType<
   GetGenerationTaskStatusResponse
 > = z.union([
-  GetTaskStatusResponse$zodSchema,
   ErrorResponse$zodSchema,
   RateLimitedResponse$zodSchema,
+  TaskResponse$zodSchema,
 ]);
