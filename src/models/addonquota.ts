@@ -14,7 +14,6 @@ export type AddonQuota = {
   used_by_request?: number | null | undefined;
   remaining?: number | null | undefined;
   limit?: number | null | undefined;
-  reset_time?: string | null | undefined;
 };
 
 export const AddonQuota$zodSchema: z.ZodType<AddonQuota> = z.object({
@@ -23,9 +22,6 @@ export const AddonQuota$zodSchema: z.ZodType<AddonQuota> = z.object({
   ),
   remaining: z.int().nullable().optional().describe(
     "Generations remaining in the current period.",
-  ),
-  reset_time: z.iso.datetime({ offset: true }).nullable().optional().describe(
-    "Time in UTC when the limit will be reset.",
   ),
   type: Feature$zodSchema.describe("The add-on a quota applies to."),
   used_by_request: z.int().nullable().optional().describe(

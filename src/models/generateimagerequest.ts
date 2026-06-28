@@ -4,9 +4,45 @@
  */
 
 import * as z from "zod";
+import { ClosedEnum } from "../types/enums.js";
 import { ImageSize, ImageSize$zodSchema } from "./imagesize.js";
 import { ModelSelection, ModelSelection$zodSchema } from "./modelselection.js";
 import { Target, Target$zodSchema } from "./target.js";
+
+/**
+ * Desired output image format. Optional; defaults to `png` when
+ *
+ * @remarks
+ * omitted. Mapped to the closest format the chosen model supports —
+ * `webp` falls back to `png` on models that don't support it (e.g.
+ * FLUX.2 Pro, Ideogram V4), and the request is ignored entirely by
+ * models that don't expose a format option (e.g. Recraft).
+ */
+export const GenerateImageRequestFormat = {
+  Jpeg: "jpeg",
+  Png: "png",
+  Webp: "webp",
+} as const;
+/**
+ * Desired output image format. Optional; defaults to `png` when
+ *
+ * @remarks
+ * omitted. Mapped to the closest format the chosen model supports —
+ * `webp` falls back to `png` on models that don't support it (e.g.
+ * FLUX.2 Pro, Ideogram V4), and the request is ignored entirely by
+ * models that don't expose a format option (e.g. Recraft).
+ */
+export type GenerateImageRequestFormat = ClosedEnum<
+  typeof GenerateImageRequestFormat
+>;
+
+export const GenerateImageRequestFormat$zodSchema = z.enum([
+  "jpeg",
+  "png",
+  "webp",
+]).describe(
+  "Desired output image format. Optional; defaults to `png` when\nomitted. Mapped to the closest format the chosen model supports —\n`webp` falls back to `png` on models that don't support it (e.g.\nFLUX.2 Pro, Ideogram V4), and the request is ignored entirely by\nmodels that don't expose a format option (e.g. Recraft).\n",
+);
 
 /**
  * Parameters for an image-generation request. Only `prompt` is required;
@@ -18,6 +54,7 @@ export type GenerateImageRequest = {
   prompt: string;
   model?: ModelSelection | undefined;
   image_size?: ImageSize | undefined;
+  format?: GenerateImageRequestFormat | undefined;
   target?: Target | undefined;
   seed?: number | null | undefined;
   async?: boolean | undefined;
@@ -28,6 +65,9 @@ export const GenerateImageRequest$zodSchema: z.ZodType<GenerateImageRequest> = z
   .object({
     async: z.boolean().default(false).describe(
       "Whether to perform the generation asynchronously.\nWhen true, the API returns immediately with a 202 and completes in the background.\nOnce complete, a webhook notification is sent to the specified URL and/or to the URLs defined in the product environment's settings.\n",
+    ),
+    format: GenerateImageRequestFormat$zodSchema.optional().describe(
+      "Desired output image format. Optional; defaults to `png` when\nomitted. Mapped to the closest format the chosen model supports —\n`webp` falls back to `png` on models that don't support it (e.g.\nFLUX.2 Pro, Ideogram V4), and the request is ignored entirely by\nmodels that don't expose a format option (e.g. Recraft).\n",
     ),
     image_size: ImageSize$zodSchema.optional().describe(
       "Desired output size, given in **one** of two mutually exclusive forms:\n\n  * `DimensionsImageSize`: `width` and `height` in pixels, for precise\n    control.\n  * `DeclarativeImageSize`: `aspect_ratio` (and an optional `resolution`\n    tier), resolved server-side to the closest size the chosen model\n    supports. This is the portable form: most providers natively accept\n    an aspect ratio plus a resolution tier rather than raw pixels.\n\nOmit `image_size` entirely to use the model's default size.\n",

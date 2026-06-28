@@ -7,37 +7,35 @@ import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Output aspect ratio, width-to-height.
+ * Output aspect ratio, width-to-height. Limited to the core ratios
+ *
+ * @remarks
+ * every model supports natively.
  */
 export const AspectRatio = {
   Eleven: "1:1",
-  ThirtyTwo: "3:2",
-  TwentyThree: "2:3",
-  FortyThree: "4:3",
-  ThirtyFour: "3:4",
-  FortyFive: "4:5",
   OneHundredAndSixtyNine: "16:9",
   NineHundredAndSixteen: "9:16",
-  OneThousandSixHundredAndTen: "16:10",
-  TwoHundredAndNineteen: "21:9",
+  FortyThree: "4:3",
+  ThirtyFour: "3:4",
 } as const;
 /**
- * Output aspect ratio, width-to-height.
+ * Output aspect ratio, width-to-height. Limited to the core ratios
+ *
+ * @remarks
+ * every model supports natively.
  */
 export type AspectRatio = ClosedEnum<typeof AspectRatio>;
 
 export const AspectRatio$zodSchema = z.enum([
   "1:1",
-  "3:2",
-  "2:3",
-  "4:3",
-  "3:4",
-  "4:5",
   "16:9",
   "9:16",
-  "16:10",
-  "21:9",
-]).describe("Output aspect ratio, width-to-height.");
+  "4:3",
+  "3:4",
+]).describe(
+  "Output aspect ratio, width-to-height. Limited to the core ratios\nevery model supports natively.\n",
+);
 
 /**
  * Output resolution tier, measured on the longest edge. Defaults to
@@ -90,7 +88,7 @@ export type DeclarativeImageSize = {
 export const DeclarativeImageSize$zodSchema: z.ZodType<DeclarativeImageSize> = z
   .object({
     aspect_ratio: AspectRatio$zodSchema.describe(
-      "Output aspect ratio, width-to-height.",
+      "Output aspect ratio, width-to-height. Limited to the core ratios\nevery model supports natively.\n",
     ),
     resolution: Resolution$zodSchema.optional().describe(
       "Output resolution tier, measured on the longest edge. Defaults to\n`1K` when omitted.\n* `0.5K`: ~512 px\n* `1K`: ~1024 px\n* `2K`: ~2048 px\n* `4K`: ~4096 px\n",
