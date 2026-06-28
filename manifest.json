@@ -1,0 +1,84 @@
+{
+  "author": {
+    "name": "Cloudinary",
+    "url": "https://cloudinary.com"
+  },
+  "description": "Cloudinary Media Generation MCP Server",
+  "display_name": "Cloudinary Media Generation",
+  "documentation": "https://cloudinary.com/documentation/cloudinary_llm_mcp",
+  "homepage": "https://github.com/cloudinary/media-generation-mcp",
+  "icon": "icon.png",
+  "keywords": [
+    "cloudinary",
+    "media generation",
+    "ai",
+    "images",
+    "generation",
+    "media"
+  ],
+  "license": "MIT",
+  "long_description": "A comprehensive MCP server for Cloudinary's Media Generation API. Generate images from text prompts using various AI models including FLUX, Recraft, GPT Image, and Nano Banana.",
+  "manifest_version": "0.3",
+  "name": "@cloudinary/media-generation-mcp",
+  "privacy_policies": [
+    "https://cloudinary.com/privacy"
+  ],
+  "prompts": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudinary/media-generation-mcp.git"
+  },
+  "screenshots": [
+    "icon.png"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "./bin/mcp-server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/bin/mcp-server.js",
+        "start",
+        "--api-key",
+        "${user_config.api_key}",
+        "--api-secret",
+        "${user_config.api_secret}",
+        "--cloud-name",
+        "${user_config.cloud_name}"
+      ]
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "description": "Your Cloudinary API key. Found in Dashboard → Settings → Access Keys.",
+      "required": true,
+      "sensitive": true,
+      "title": "API Key",
+      "type": "string"
+    },
+    "api_secret": {
+      "description": "Your Cloudinary API secret. Found in Dashboard → Settings → Access Keys.",
+      "required": true,
+      "sensitive": true,
+      "title": "API Secret",
+      "type": "string"
+    },
+    "cloud_name": {
+      "description": "Your Cloudinary cloud name. Find it in your Cloudinary Dashboard.",
+      "required": true,
+      "title": "Cloud Name",
+      "type": "string"
+    }
+  },
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "generation-generate-image",
+      "description": "Generate an image\n\nGenerate an image from a text prompt using AI models.\n\nThe model is selected via the optional `model` object:\n1. If `model.id` is provided, use that exact model.\n2. Else if `model.family` (+ optional `model.tier`) is provided, resolve via the model registry; a missing tier defaults to `standard`.\n3. If `model` is omitted, use the global default (nano-banana / standard).\n"
+    },
+    {
+      "name": "tasks-get-generation-task-status",
+      "description": "Get a generation task\n\nGet the status of a generation task."
+    }
+  ]
+}

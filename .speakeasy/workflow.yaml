@@ -1,0 +1,18 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Media-Generation-API-MCP-OAS:
+        inputs:
+            - location: https://cloudinary.github.io/api-schemas/media-generation/schema.yml
+        overlays:
+            - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-cloud-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/overlays/cloud-name-overlay.yml
+        registry:
+            location: registry.speakeasyapi.dev/cloudinary/cloudinary/media-generation-api-mcp-oas
+targets:
+    cloudinary-media-generation-mcp:
+        target: mcp-typescript
+        source: Media-Generation-API-MCP-OAS
+        publish:
+            npm:
+                token: $npm_token

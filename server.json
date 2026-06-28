@@ -1,0 +1,94 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.cloudinary/media-generation-mcp",
+  "title": "Cloudinary Media Generation",
+  "description": "Generate images from text prompts using AI models including FLUX, Recraft, GPT Image, and Nano Banana.",
+  "repository": {
+    "url": "https://github.com/cloudinary/media-generation-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@cloudinary/media-generation-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CLOUDINARY_CLOUD_NAME",
+          "description": "Your Cloudinary cloud name. Find it in your Cloudinary Dashboard.",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "CLOUDINARY_API_KEY",
+          "description": "Your Cloudinary API key. Found in Dashboard > Settings > Access Keys.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "CLOUDINARY_API_SECRET",
+          "description": "Your Cloudinary API secret. Found in Dashboard > Settings > Access Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "registryType": "oci",
+      "identifier": "docker.io/cloudinary/media-generation-mcp:1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CLOUDINARY_CLOUD_NAME",
+          "description": "Your Cloudinary cloud name. Find it in your Cloudinary Dashboard.",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "CLOUDINARY_API_KEY",
+          "description": "Your Cloudinary API key. Found in Dashboard > Settings > Access Keys.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "CLOUDINARY_API_SECRET",
+          "description": "Your Cloudinary API secret. Found in Dashboard > Settings > Access Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://media-generation.mcp.cloudinary.com/mcp",
+      "headers": [
+        {
+          "name": "cloudinary-cloud-name",
+          "description": "Your Cloudinary cloud name. Find it in your Cloudinary Dashboard.",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "cloudinary-api-key",
+          "description": "Your Cloudinary API key. Found in Dashboard > Settings > Access Keys.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "cloudinary-api-secret",
+          "description": "Your Cloudinary API secret. Found in Dashboard > Settings > Access Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

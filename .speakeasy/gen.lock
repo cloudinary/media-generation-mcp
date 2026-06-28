@@ -1,0 +1,541 @@
+lockVersion: ""
+id: ""
+management:
+  docChecksum: 49224432ae18b0b1ebeef8319684e49e
+  docVersion: 1.0.0
+  speakeasyVersion: 1.786.1
+  generationVersion: 2.913.3
+  releaseVersion: 1.0.0
+  configChecksum: 0c31ef11c3bb0281cf175f964fb6ec3b
+  published: true
+persistentEdits:
+  generation_id: f4837510-8d3a-410f-9ee8-7977932f30ac
+  pristine_commit_hash: 950e653b450284ad79b01056507bfe7e6b1070b6
+  pristine_tree_hash: dbdd82080a5e60516f91dcd0c64df0390f90ab03
+features:
+  mcp-typescript:
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.2
+    core: 1.3.4
+    customSecuritySchemes: 0.1.1
+    defaultEnabledRetries: 0.1.0
+    enumUnions: 0.1.0
+    flattening: 0.1.0
+    globalSecurity: 0.1.3
+    globalSecurityCallbacks: 0.0.0
+    globalServerURLs: 0.1.2
+    globals: 0.1.0
+    hiddenGlobals: 0.1.0
+    nullables: 0.1.0
+    responseFormat: 0.1.1
+    retries: 0.1.1
+    sdkHooks: 0.3.0
+    unions: 0.2.0
+trackedFiles:
+  .dxtignore:
+    id: 0ee1c4f92736
+    last_write_checksum: sha1:0cbab1b303d9060f6324f6a9cddabe13c2cfa7c9
+    pristine_git_object: 21eeace1d85822ffb013f6c0667a19f35c33cee0
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:26d16d8297b104945139da8c25bd38feeaad3e25
+    pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
+  .npmignore:
+    id: aa70c1f807c3
+    last_write_checksum: sha1:aa14435f0c166ebc0edbf1ae6f65128e33dc8c97
+    pristine_git_object: 0bc901db2a899e4b8f0bdcbea7fd547ef18e2fd9
+  eslint.config.mjs:
+    id: 461c8d07f6da
+    last_write_checksum: sha1:576025302d3d8650f37276bc9075f6ade3842cc7
+    pristine_git_object: 4f9e60a9462fc4def738d60c3aaadf8232ef185f
+  manifest.json:
+    id: ca642a226869
+    last_write_checksum: sha1:331053777595089dc39cec1cd9a80b7363eb1c03
+    pristine_git_object: 39b8d3b1290ac608ba9f25692176bfe66c4d379f
+  package.json:
+    id: 7030d0b2f71b
+    last_write_checksum: sha1:73f5f8053013a0ef18c131c06a5bf9e081b96a8f
+    pristine_git_object: 7df2d357ef8bd5b2f0640cf3f9cf693df4fdb70e
+  src/core.ts:
+    id: f431fdbcd144
+    last_write_checksum: sha1:755be55c7e40769bfd989592b46365601e7420dd
+    pristine_git_object: ca7c2cf84755a83720d50b3b9768d36a46236c8d
+  src/funcs/generationGenerateImage.ts:
+    id: cc8760c8f69b
+    last_write_checksum: sha1:da04b83236ff51208f0c930f3dc3c957d0060af8
+    pristine_git_object: 78144b93f5c42dc4ee1512cbf19cd9812ade9711
+  src/funcs/tasksGetGenerationTaskStatus.ts:
+    id: 7551699362f9
+    last_write_checksum: sha1:7c676c27d1e1854cff2b00d7964fcd6041cc915d
+    pristine_git_object: bd90efba9e25efe7cffb83228810c584d212584e
+  src/hooks/hooks.ts:
+    id: a2463fc6f69b
+    last_write_checksum: sha1:36c7bf5c31e0986fba9e0f9db28a769be7904ffd
+    pristine_git_object: 28c90f854c4e8bba492d873d391ea8d68ca6e009
+  src/hooks/types.ts:
+    id: 2a02d86ec24f
+    last_write_checksum: sha1:622c2ac820271766bc4010bfc3904738c4c5ed0f
+    pristine_git_object: ccd5e5d812cb4d21a1013c89f04daad9d2f72190
+  src/landing-page.ts:
+    id: ef64a6ee46d7
+    last_write_checksum: sha1:95d356d77fd4e26731b900bac6526a9c63f71af1
+    pristine_git_object: 85214495503795f82cd456bb1a1ad0aede86c2e7
+  src/lib/base64.ts:
+    id: "598522066688"
+    last_write_checksum: sha1:716fa8938b85035068c8bc0586e92aa17f8e21a2
+    pristine_git_object: b45f432798e2151eee7f6eb4df628b7310942c01
+  src/lib/config.ts:
+    id: 320761608fb3
+    last_write_checksum: sha1:79b8074ed9b193cfd45482dbdb999860916f0e28
+    pristine_git_object: 98534a5c4a0c5d41df62adb95f1e50b4ae06b6d9
+  src/lib/encodings.ts:
+    id: 3bd8ead98afd
+    last_write_checksum: sha1:73dbff8f71fbbc62b58fb98d03fc0dee847fe96b
+    pristine_git_object: 0fb3701301f7499457c9d13868d2eb99d8fec00d
+  src/lib/env.ts:
+    id: c52972a3b198
+    last_write_checksum: sha1:dd67211778866b44dcbcc24fde4cd7d3f4b0e9e8
+    pristine_git_object: 649accfe24bc148337a829922d526d1d24c4308f
+  src/lib/files.ts:
+    id: e5efa54fcb95
+    last_write_checksum: sha1:eca69f15b691e2fbe6d5b15e9b84add4c730c3d7
+    pristine_git_object: 65b68cb732d16030625a4370a45e29fd78abd94b
+  src/lib/http.ts:
+    id: 63a80782d37e
+    last_write_checksum: sha1:e60a1f9c9ffffd11bcf7fd47e51ac93f4ec1ba2d
+    pristine_git_object: 326ee1a058794d1388fbb80359df9cb21e58566e
+  src/lib/logger.ts:
+    id: 7ee7741a02bf
+    last_write_checksum: sha1:6615bc573f4a3922bb6c8cf8080142d9d8afd1ef
+    pristine_git_object: 323f1895a0266be873f16a924dd58fa500dc97e5
+  src/lib/primitives.ts:
+    id: 74859f750b28
+    last_write_checksum: sha1:d72cfc5854fac7eb457a6e3682697529378c7b7e
+    pristine_git_object: 9f61a222ce12f85f3f525ccafdecbdbd9d699877
+  src/lib/result.ts:
+    id: ab7a4c1c4c71
+    last_write_checksum: sha1:340784be0370913e690ee044b6b872b526d80b55
+    pristine_git_object: 6b5dcf6034b947b7fc8c0e556adaf0d5c521049d
+  src/lib/retries.ts:
+    id: b24a69d15639
+    last_write_checksum: sha1:3a59bb40367f1d058b1840eff566b40d68da64af
+    pristine_git_object: bded24050f6ae13d8cd52e41c9d0f9b50dbaff92
+  src/lib/schemas.ts:
+    id: deb4b531fae1
+    last_write_checksum: sha1:535b186219f7ab21771f0df73026d3724537f03b
+    pristine_git_object: c05ed79db28f51121a621e195842e64aaf85f755
+  src/lib/sdks.ts:
+    id: 8a6d91f1218d
+    last_write_checksum: sha1:e12ee73688f594199550b9f6421aeab6d79a1e7d
+    pristine_git_object: 2649242b53c884f994e8003d3ed8afff64a564ac
+  src/lib/security.ts:
+    id: 0502afa7922e
+    last_write_checksum: sha1:f93a488ce684fa0d9eb478cc5f6429dc9b209a25
+    pristine_git_object: e506e8e407c55e8ad3a1a409cc7823b6a9e41c5f
+  src/lib/url.ts:
+    id: b0057e24ed76
+    last_write_checksum: sha1:f4b6ce0ff024f800fa438fb082f8f7faae50172c
+    pristine_git_object: 46b8b36297b90de55ad6a273f6cc26e4cb227261
+  src/mcp-server/build.mts:
+    id: f7a2ed2de4d7
+    last_write_checksum: sha1:fc08ccde7b8703a94411bb37b97ba5dd51a686db
+    pristine_git_object: 1cdf8979378936f964a3c0e6275b7e7a5689a14c
+  src/mcp-server/cli.ts:
+    id: 4ade0ef98b00
+    last_write_checksum: sha1:328ffc5ed0eca56509bf2828264c3b2c87926e09
+    pristine_git_object: ed4a1808d7da14f0f0bb0cf27cc7eb7414a3182c
+  src/mcp-server/cli/serve/command.ts:
+    id: 7cd4394c80e8
+    last_write_checksum: sha1:97634be4b6416ed4a1e95347e1a31a7b69d13dc2
+    pristine_git_object: f65254dd2ac1745c30d381b21ac74a109d450a11
+  src/mcp-server/cli/serve/impl.ts:
+    id: 03e83f226068
+    last_write_checksum: sha1:7a679816d7c93246768a44a00c2ae98ebf0f657e
+    pristine_git_object: b51092bd2ed85df9fa2be1f8264a7c0e19730f2b
+  src/mcp-server/cli/start/command.ts:
+    id: b3e53408ccb4
+    last_write_checksum: sha1:3b6296806a8e0605d84de19bcac16370d6fed50d
+    pristine_git_object: 2a4e2f539a3f916d28a57215aa0704a820439368
+  src/mcp-server/cli/start/impl.ts:
+    id: 37494f674015
+    last_write_checksum: sha1:70363d7932e0e7ac789e241ff808b8fc388cd2a9
+    pristine_git_object: 0ac16a19ca8f5dc0ed12fff82e014c99312f230b
+  src/mcp-server/console-logger.ts:
+    id: 57aff4ff2e15
+    last_write_checksum: sha1:92b145078aa234abdc2523fe335a6fab14423a6d
+    pristine_git_object: f063cef82b992553f4d9dc87a88202726df01be9
+  src/mcp-server/extensions.ts:
+    id: 3d9d20ff158f
+    last_write_checksum: sha1:51ad5c4f9db1bd812cdd8270001773ac13b30353
+    pristine_git_object: d0ea2e4a0dda5e6e3f692eb41a69de174eb66d89
+  src/mcp-server/flags.ts:
+    id: 0167e624a516
+    last_write_checksum: sha1:cb8c1adf9bc0581d53004c8279c74f3f6b453ce1
+    pristine_git_object: a0fdeab9b94f0ee78053c348e580a3582f9a6a34
+  src/mcp-server/mcp-server.ts:
+    id: aabbc4ab07c1
+    last_write_checksum: sha1:9cd1d028dacf7f0cac040c80bda4f91bf22eb8ff
+    pristine_git_object: cbe470a271a7bb4261ce50e060d160b7ea5cbd18
+  src/mcp-server/prompts.ts:
+    id: 26f3d73cbf31
+    last_write_checksum: sha1:fa139cb3756dcfa34998e7e647d0e00cfe0e05c4
+    pristine_git_object: 8cd7f9c4068370f1caa19451b676af8dd081d825
+  src/mcp-server/resources.ts:
+    id: cb0c57ebeaea
+    last_write_checksum: sha1:8a655af4060735dd19873a8ad7960a6c674ca1bf
+    pristine_git_object: 0c3dd9dbb904929748baf21523beaf75e1f5c13c
+  src/mcp-server/scopes.ts:
+    id: 8966d24256b2
+    last_write_checksum: sha1:5d7f452efc469fe7a5039f5542caaaee43a6667f
+    pristine_git_object: 524b864b4a0d515386ff3f42ed22463827039c06
+  src/mcp-server/server.ts:
+    id: 2784dd48e82a
+    last_write_checksum: sha1:032644c39ccd5b7c82a4b36b468cc4143b892f5c
+    pristine_git_object: 2cda0ff7f8fb0944fc8b3782472b15d5097f49a0
+  src/mcp-server/shared.ts:
+    id: 074e80d4be1e
+    last_write_checksum: sha1:89d816c34ea71049cbf484f9704239e5372858f1
+    pristine_git_object: de2973d0d371eb329d41e23de6da3c0b04524ec6
+  src/mcp-server/tools.ts:
+    id: 654d5d1f2062
+    last_write_checksum: sha1:ec992c1a008e97c01fda0551623f08f1338756a1
+    pristine_git_object: 704ad71cfd1da44ec67022c526a305f6a367ddd0
+  src/mcp-server/tools/generationGenerateImage.ts:
+    id: 358095938b5f
+    last_write_checksum: sha1:cffe32a9bec225ec92a42b2e6273010b674524f8
+    pristine_git_object: 2f87813ecf931a8a97a8e08bd38bcf4717ad094f
+  src/mcp-server/tools/tasksGetGenerationTaskStatus.ts:
+    id: d4dcec03e501
+    last_write_checksum: sha1:fbad84225a8e5b897d46dd5a82369784adb5b6dd
+    pristine_git_object: 2098dbf4b1aabb5e18df2a370c7798c895192da4
+  src/models/addonquota.ts:
+    id: 1e523cb9c814
+    last_write_checksum: sha1:31533e1c7f8ed1baebe2daf04fb3aba690031f7d
+    pristine_git_object: 0cc59bf55c31c15c529659552c1b357e0a18e997
+  src/models/declarativeimagesize.ts:
+    id: 0ccb8dd8898a
+    last_write_checksum: sha1:ad198c915ffcbef1ba2b045a32acc277acce2d28
+    pristine_git_object: b1b8d2b53d8a37b947953a0dec4bd2d18feb32bd
+  src/models/dimensionsimagesize.ts:
+    id: ce5e680288e9
+    last_write_checksum: sha1:b5be3520dee0edd5fcdc90ef3d00b6e62f1136af
+    pristine_git_object: 66af3857d3bc85ed9c6c988de6aec960fc55bdcf
+  src/models/error.ts:
+    id: d53a586acbe6
+    last_write_checksum: sha1:7de50091f7c8db2568cb21dc3980f6e620060b7c
+    pristine_git_object: aee00c13bd3a6076fe279a203612c015775deb52
+  src/models/errorcategory.ts:
+    id: 369096a8494a
+    last_write_checksum: sha1:425cd85e860a13691738d845ef23a0783a58803b
+    pristine_git_object: 03bd2a6000c3f4d59eeadc76c05a558b429984f3
+  src/models/errorresponse.ts:
+    id: 55a21b891851
+    last_write_checksum: sha1:9035393f4a18940a1f39ebbc54fe5afc34e72319
+    pristine_git_object: 888c5ccba4c88398621b4f74061696fd54d26845
+  src/models/errors/apierror.ts:
+    id: e2280e075454
+    last_write_checksum: sha1:b6927c28c3304c3afffb374d0b20e865c6bab933
+    pristine_git_object: 0161870bccb8c393a5722a955f57bcf39c585c20
+  src/models/errors/httpclienterrors.ts:
+    id: 6948de76af99
+    last_write_checksum: sha1:ecfe6470690d643550eb3f425796c18ff9311aa7
+    pristine_git_object: 53bb3cfae157b89fda8e4a5b0f1dd709da82c1c9
+  src/models/errors/sdkvalidationerror.ts:
+    id: fb6b2b49c445
+    last_write_checksum: sha1:007cf5906a9195d49150c032fc710a38bf76c074
+    pristine_git_object: 6e164d3e7edbc93fa65afff3b80ecb5044c9d273
+  src/models/feature.ts:
+    id: 31d7acca0a1e
+    last_write_checksum: sha1:a13a866d80ca079f240733043354f78a9603bf5e
+    pristine_git_object: 3e76a278db822342a52ea440633e2504127db60a
+  src/models/generatedasset.ts:
+    id: 97a338105c2a
+    last_write_checksum: sha1:af75946f5e17057fa90072c2f2e801ea13f37512
+    pristine_git_object: c0378c936583609d48895b3130a3300f3242b73c
+  src/models/generatedassets.ts:
+    id: 612a8e835a58
+    last_write_checksum: sha1:ba211b259a27341dd1e57250d4fbd11bed4da119
+    pristine_git_object: ee878adb6a95f773a83b849a6cb9619ee259352e
+  src/models/generateimageop.ts:
+    id: e4931b83a9fa
+    last_write_checksum: sha1:52ce78f15ef617f8a90c009e74c826dd95e308c6
+    pristine_git_object: ca39c00a131b9e244ac9e82e46df5743a72cd129
+  src/models/generateimagerequest.ts:
+    id: 958825c984f2
+    last_write_checksum: sha1:8903a7b61523ae8175e43ce84823bfe20ca7742b
+    pristine_git_object: 24745f4dadda47c373be3294dc72c6070b77eee0
+  src/models/generateimageresult.ts:
+    id: de0aa67fae25
+    last_write_checksum: sha1:01ca1ff08bda01d66358b098f93bd407ea50aa17
+    pristine_git_object: baa124dadab910318d9e2c87c12fe8c8762141b7
+  src/models/getgenerationtaskstatusop.ts:
+    id: 9a160012644e
+    last_write_checksum: sha1:f7c8efe5337b09ace4cc94337db5e4810e49dffc
+    pristine_git_object: 13bdde908bcf5b41a385abe0d35382d4de352fba
+  src/models/imagesize.ts:
+    id: 0e2c2c2f2316
+    last_write_checksum: sha1:714f99d8ca8f783d4ecb498883a9c5524ddbf11c
+    pristine_git_object: 4032d51daf13c3db32aa3ebadf66df6e1482e9c8
+  src/models/limits.ts:
+    id: eb60dcc8c8ce
+    last_write_checksum: sha1:317937a8616b25dc31377294e39a9ebe23d6748e
+    pristine_git_object: 7ec9a0461eb60237e7f88b99c7d406124ed9f0c5
+  src/models/managedassetstorage.ts:
+    id: 6fd55dfd5f37
+    last_write_checksum: sha1:5d77484a52f48c84a68694ad0dbff732c1dc8bea
+    pristine_git_object: 5a64cb76870c7ab01cd67ec59258baa345413bd5
+  src/models/managedassettarget.ts:
+    id: 7134de2f0583
+    last_write_checksum: sha1:a6f1e24d9b822dcf8521cfafb423c403ffe1a4a7
+    pristine_git_object: d109fa219816798494984509233b6bbb733df2fe
+  src/models/model.ts:
+    id: b99d4c14e794
+    last_write_checksum: sha1:1130d23f72c94a3d11c7cd5a8b0c4b21f2110cf4
+    pristine_git_object: d69b81661f5308afbba57351acd11069ba742aa0
+  src/models/modelbyfamily.ts:
+    id: 6af9ea6fe52b
+    last_write_checksum: sha1:24f1164f4eda389b87a1ebc70ee5156084c2c2da
+    pristine_git_object: cc019d2cf6a0221384bf6c94a6fbb829fe2d4421
+  src/models/modelbyid.ts:
+    id: 55f0cd308347
+    last_write_checksum: sha1:8729114af9923ddedd7bafdfdfa287d31364cee0
+    pristine_git_object: ee17b650a6fbc3b46d8fae48effab05ffd244b20
+  src/models/modelselection.ts:
+    id: dc910f56e90b
+    last_write_checksum: sha1:c693d28cb205b521054a50691287577b6e14417d
+    pristine_git_object: 106970b651548aa6b4a9999c646a7da1466c8aa2
+  src/models/ratelimitedresponse.ts:
+    id: d632a065f0ef
+    last_write_checksum: sha1:60004d53e8f9ed8b56aa2dd9a747638bcda5d61f
+    pristine_git_object: 670089143d3482ee2538d1e59fcd080791860b17
+  src/models/security.ts:
+    id: d90c6c784ca5
+    last_write_checksum: sha1:125a111555c2d85588dc269be3d259655f37d8c5
+    pristine_git_object: 58f8ea47e92b3b93a739e12dc5a5dffeb31a121c
+  src/models/storage.ts:
+    id: 8b534f43f59e
+    last_write_checksum: sha1:af72148ef00fff80067e2c6bce4723c32edee2ef
+    pristine_git_object: 15c6b74d2dc00ad8cc55caf537873d18227219ce
+  src/models/target.ts:
+    id: f37077ef7c9a
+    last_write_checksum: sha1:7c24db74bf6936ebee4923862d066325c1f8daf3
+    pristine_git_object: 87317976ea6a70c1631491078effa585f836452b
+  src/models/task.ts:
+    id: 9609f5f4adcb
+    last_write_checksum: sha1:1a703514c7d1a5e1a8a86f3793a629eeadb42564
+    pristine_git_object: 629f6d67c4393332b629baa66faad9b874071ac5
+  src/models/taskresponse.ts:
+    id: b5ae8dfddaea
+    last_write_checksum: sha1:c4498dd603e6b190c0cbdaf4441923ec63459469
+    pristine_git_object: 4aa0f32d0c2b43afbb8d8fcab6137028e3d399a2
+  src/models/taskstatus.ts:
+    id: 53ca97329a8b
+    last_write_checksum: sha1:0eaf666e06c8c5a30a26daf0ae8a3422a85de7aa
+    pristine_git_object: fa1cd20b3909e61ceb17a446934b7a152139b597
+  src/models/temporarystorage.ts:
+    id: edef5e745a76
+    last_write_checksum: sha1:188a0d815979c2218f8f51589c0f29fbe1cc53d2
+    pristine_git_object: 8cc0e1dcf5df8f1f858a58daf031ee213fca3428
+  src/models/temporarytarget.ts:
+    id: 3585fffc94ea
+    last_write_checksum: sha1:023d7f11b021a54ccba17a892e9c892312ab8a5e
+    pristine_git_object: b244353dec258a824f00168f1651973510037336
+  src/tool-names.ts:
+    id: a9977280f9eb
+    last_write_checksum: sha1:0fd21ae06a7276ecee010f42f76539cbec367b08
+    pristine_git_object: 67c56ec223312864f3e37f49dbcb5a1b065fd9a8
+  src/types/async.ts:
+    id: fac8da972f86
+    last_write_checksum: sha1:042571ad6be7fd5ce5a93b292b9c1aefc21ebff7
+    pristine_git_object: b2ee3d86cc780e492b94b816527ed124a5e7e432
+  src/types/bigint.ts:
+    id: 3ca6e3280e43
+    last_write_checksum: sha1:b4c753c3b089c8f8f841ca7514e87c6ec431ee4f
+    pristine_git_object: 6dfb85fb736293ecf41793b9ff13cf97a842a073
+  src/types/blobs.ts:
+    id: f8ab9b326c86
+    last_write_checksum: sha1:2660c6b17947053d8ffe05e83407c31543047a23
+    pristine_git_object: 563c0c23002407ee7a470ad39406306055a1b44b
+  src/types/enums.ts:
+    id: 4d03ddfe5100
+    last_write_checksum: sha1:d4b63948a5580aa49dbce10761cb125e69d65d9e
+    pristine_git_object: 9e3ac0191e1d6c3e5032ea0c77bc95aadbe2d5dc
+  src/types/fp.ts:
+    id: ae9f0fb8aab6
+    last_write_checksum: sha1:fcf17e51e79a8e6894d0bea905f9be991617d23a
+    pristine_git_object: 7d4f9f139bcbd770fe3d0850eaa6761758311b50
+  src/types/rfcdate.ts:
+    id: 9eb64906dcd6
+    last_write_checksum: sha1:a00ef5838da2b85c35da290dc01660845f8dbeb4
+    pristine_git_object: 05a12a9ea1c818e7cb49104f009b6cc6376bac25
+  src/types/streams.ts:
+    id: f99be9c4bf14
+    last_write_checksum: sha1:21b75828c957ee30985ddcc9f9f2704991242a58
+    pristine_git_object: 88c11154994b57fb078cef64729ba329636827a9
+  tsconfig.json:
+    id: 61ebb9fd6e8c
+    last_write_checksum: sha1:2a1769fabf9e934fa0b118db46d3b66cb500a6b7
+    pristine_git_object: 0ca48942a1b9cd923d614985dfb81f0dc7e1d298
+examples:
+  generate_image:
+    BasicExample:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+      requestBody:
+        application/json: {"prompt": "A man with a hat", "async": false}
+      responses:
+        "200":
+          application/json: {"data": {"assets": []}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "202":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    FullExample:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model_family": "flux", "quality_tier": "premium", "width": 1024, "height": 768, "seed": 42, "async": false}
+      responses:
+        "200":
+          application/json: {"limits": {"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50, "reset_time": "2026-04-22T00:00:00Z"}, "data": {"assets": []}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "202":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "IG_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "IG_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50, "reset_time": "2026-04-22T00:00:00Z"}}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "IG_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+    AsyncExample:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+      requestBody:
+        application/json: {"prompt": "A futuristic city skyline at night", "model": {"family": "gpt-image", "tier": "premium"}, "async": true, "notification_url": "https://path.to/webhook"}
+      responses:
+        "200":
+          application/json: {"data": {"assets": []}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "202":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    speakeasy-default-generate-image:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model_family": "flux", "quality_tier": "premium", "explicit_model": "flux-2-pro", "width": 1024, "height": 768, "seed": 42, "async": false, "notification_url": "https://path.to/webhook"}
+      responses:
+        "200":
+          application/json: null
+        "202":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "IG_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "IG_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50, "reset_time": "2026-04-22T00:00:00Z"}}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "IG_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+    Success:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model": {"family": "flux", "tier": "premium"}, "image_size": {"width": 1280, "height": 720}, "format": "png", "target": {"target_type": "managed_asset"}, "seed": 42, "async": false, "notification_url": "https://path.to/webhook"}
+      responses:
+        "200":
+          application/json: {"data": {"assets": [{"storage": {"storage_type": "temporary", "secure_url": "https://upload-global.cloudinary.com/v2/demo/uploads/a78a2e043c2da0b50a98961d60a8b05a/image.png", "expires_at": "2026-06-25T12:50:26Z"}, "format": "png", "width": 1024, "height": 768, "bytes": 2048576, "model": {"family": "flux", "tier": "premium", "id": "flux-2-pro"}, "seed": 42, "created_at": "2026-04-21T14:30:00Z"}]}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    RateLimited:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model": {"family": "flux", "tier": "premium"}, "image_size": {"width": 1280, "height": 720}, "format": "png", "target": {"target_type": "managed_asset"}, "seed": 42, "async": false, "notification_url": "https://path.to/webhook"}
+      responses:
+        "429":
+          application/json: {"error": {"category": "rate_limit_error", "code": "MG_00429", "message": "Daily generation limit exceeded. Limit resets at 2026-04-22T00:00:00Z"}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 0, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    DeclarativeSizeExample:
+      parameters:
+        path:
+          cloud_name: "<value>"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model": {"family": "flux", "tier": "premium"}, "image_size": {"aspect_ratio": "16:9", "resolution": "2K"}, "target": {"target_type": "managed_asset", "public_id": "my-public-id", "upload_preset": "some-preset"}, "seed": 42, "async": false}
+      responses:
+        "200":
+          application/json: {"data": {"assets": []}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "202":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    DimensionsSizeExample:
+      parameters:
+        path:
+          cloud_name: "<value>"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model": {"id": "flux-2-pro"}, "image_size": {"width": 1280, "height": 720}, "target": {"target_type": "temporary"}, "seed": 42, "async": false}
+      responses:
+        "200":
+          application/json: {"data": {"assets": []}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "202":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    SuccessManagedAsset:
+      parameters:
+        path:
+          cloud_name: "<value>"
+      requestBody:
+        application/json: {"prompt": "A photorealistic sunset over a mountain lake, 8K detail", "model": {"family": "flux", "tier": "premium"}, "image_size": {"width": 1280, "height": 720}, "format": "png", "target": {"target_type": "managed_asset"}, "seed": 42, "async": false, "notification_url": "https://path.to/webhook"}
+      responses:
+        "200":
+          application/json: {"data": {"assets": [{"storage": {"storage_type": "managed_asset", "secure_url": "https://res.cloudinary.com/demo/image/upload/v1750000000/my-public-id.png", "asset_id": "0d6f8e1c2b3a4d5e6f7a8b9c0d1e2f3a", "public_id": "my-public-id", "resource_type": "image", "type": "upload", "version": 1750000000}, "format": "png", "width": 1024, "height": 768, "bytes": 2048576, "model": {"family": "flux", "tier": "premium", "id": "flux-2-pro"}, "seed": 42, "created_at": "2026-04-21T14:30:00Z"}]}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+  get_generation_task_status:
+    speakeasy-default-get-generation-task-status:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+          task_id: "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb"
+      responses:
+        "200":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 48, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    RateLimited:
+      parameters:
+        path:
+          cloud_name: "your-cloud-name"
+          task_id: "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb"
+      responses:
+        "429":
+          application/json: {"error": {"category": "rate_limit_error", "code": "MG_00429", "message": "Daily generation limit exceeded. Limit resets at 2026-04-22T00:00:00Z"}, "limits": {"addons_quota": [{"type": "image_generation", "used_by_request": 1, "remaining": 0, "limit": 50}]}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+    Completed:
+      parameters:
+        path:
+          task_id: "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb"
+          cloud_name: "<value>"
+      responses:
+        "200":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "completed", "result": {"assets": [{"storage": {"storage_type": "temporary", "secure_url": "https://upload-global.cloudinary.com/v2/demo/uploads/a78a2e043c2da0b50a98961d60a8b05a/stream", "expires_at": "2026-06-25T12:50:26Z"}, "format": "png", "width": 1024, "height": 768, "bytes": 2048576, "model": {"family": "flux", "tier": "premium", "id": "flux-2-pro"}, "seed": 42, "created_at": "2026-04-21T14:30:00Z"}]}}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+examplesVersion: 1.0.2

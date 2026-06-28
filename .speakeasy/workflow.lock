@@ -1,0 +1,34 @@
+speakeasyVersion: 1.786.1
+sources:
+    Media-Generation-API-MCP-OAS:
+        sourceNamespace: media-generation-api-mcp-oas
+        sourceRevisionDigest: sha256:30a84b75727f70ca73d257e96b3ff7bc3756fa3d84d27309c9bf12d2a0ee132d
+        sourceBlobDigest: sha256:23cef5a8a9359582c7cbd4b9f2951bd5187e2e891b357b94861e3d5f65e6f809
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    cloudinary-media-generation-mcp:
+        source: Media-Generation-API-MCP-OAS
+        sourceNamespace: media-generation-api-mcp-oas
+        sourceRevisionDigest: sha256:30a84b75727f70ca73d257e96b3ff7bc3756fa3d84d27309c9bf12d2a0ee132d
+        sourceBlobDigest: sha256:23cef5a8a9359582c7cbd4b9f2951bd5187e2e891b357b94861e3d5f65e6f809
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Media-Generation-API-MCP-OAS:
+            inputs:
+                - location: https://cloudinary.github.io/api-schemas/media-generation/schema.yml
+            overlays:
+                - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-cloud-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/overlays/cloud-name-overlay.yml
+            registry:
+                location: registry.speakeasyapi.dev/cloudinary/cloudinary/media-generation-api-mcp-oas
+    targets:
+        cloudinary-media-generation-mcp:
+            target: mcp-typescript
+            source: Media-Generation-API-MCP-OAS
+            publish:
+                npm:
+                    token: $npm_token
