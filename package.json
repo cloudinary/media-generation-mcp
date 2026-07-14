@@ -1,6 +1,6 @@
 {
   "name": "@cloudinary/media-generation-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Cloudinary",
   "type": "module",
   "sideEffects": false,

@@ -18,12 +18,10 @@ export const TemporaryTargetTargetType$zodSchema = z.enum([
 ]);
 
 /**
- * Store the output as a short-lived asset on the upload service (the default).
+ * Store the output as a short-lived asset on the upload service.
  */
 export type TemporaryTarget = { target_type: TemporaryTargetTargetType };
 
 export const TemporaryTarget$zodSchema: z.ZodType<TemporaryTarget> = z.object({
   target_type: TemporaryTargetTargetType$zodSchema,
-}).describe(
-  "Store the output as a short-lived asset on the upload service (the default).",
-);
+}).describe("Store the output as a short-lived asset on the upload service.");

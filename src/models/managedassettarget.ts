@@ -18,7 +18,7 @@ export const ManagedAssetTargetTargetType$zodSchema = z.enum([
 ]);
 
 /**
- * Store the output as a permanent managed asset in your Cloudinary product environment.
+ * Store the output as a permanent managed asset in your Cloudinary product environment (the default).
  */
 export type ManagedAssetTarget = {
   target_type: ManagedAssetTargetTargetType;
@@ -36,5 +36,5 @@ export const ManagedAssetTarget$zodSchema: z.ZodType<ManagedAssetTarget> = z
       "Upload preset to apply. Uses the product environment's default when omitted.",
     ),
   }).describe(
-    "Store the output as a permanent managed asset in your Cloudinary product environment.",
+    "Store the output as a permanent managed asset in your Cloudinary product environment (the default).",
   );

@@ -85,7 +85,7 @@ export const GenerateImageRequest$zodSchema: z.ZodType<GenerateImageRequest> = z
       "Seed for reproducible generation. Supported by most models.\nSilently ignored by models that don't support it.\n",
     ),
     target: Target$zodSchema.optional().describe(
-      "Where to store the generated output, determined by `target_type`.\nOptional; defaults to a `temporary` target when omitted.\n",
+      "Where to store the generated output, determined by `target_type`.\nOptional; defaults to a `managed_asset` target when omitted.\n",
     ),
   }).describe(
     "Parameters for an image-generation request. Only `prompt` is required;\nall other fields fall back to documented defaults.\n",
