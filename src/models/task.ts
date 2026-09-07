@@ -42,8 +42,12 @@ export const Task$zodSchema: z.ZodType<Task> = z.object({
   result: z.lazy(() => Result$zodSchema).nullable().optional().describe(
     "The generated assets. Populated once `status` is `completed`.\n",
   ),
-  status: TaskStatus$zodSchema.describe("The status of an async task."),
-  task_id: z.string(),
+  status: TaskStatus$zodSchema.describe(
+    "The status of an async generation task.\n* `pending`: accepted and queued, not yet started.\n* `processing`: generation is in progress.\n* `completed`: generation finished; `result` is populated.\n* `failed`: generation did not complete successfully.\n",
+  ),
+  task_id: z.string().describe(
+    "Identifier for the async generation task. Use it to poll `GET /generate/{cloud_name}/tasks/{task_id}`.",
+  ),
 }).describe(
   "An async generation task. Returned when a generation is accepted (202)\nand from GET /tasks/{task_id} as it progresses. The `result` is filled\nin once `status` is `completed`.\n",
 );

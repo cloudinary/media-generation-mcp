@@ -18,7 +18,9 @@ export const TaskResponse$zodSchema: z.ZodType<TaskResponse> = z.object({
   data: Task$zodSchema.optional().describe(
     "An async generation task. Returned when a generation is accepted (202)\nand from GET /tasks/{task_id} as it progresses. The `result` is filled\nin once `status` is `completed`.\n",
   ),
-  request_id: z.string(),
+  request_id: z.string().describe(
+    "Unique identifier for this request, for correlation and support.",
+  ),
 }).describe(
   "Envelope for an async generation task — returned by the accepted (202)\nresponse and by GET /tasks/{task_id}.\n",
 );

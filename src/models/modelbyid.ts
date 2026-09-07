@@ -7,7 +7,11 @@ import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Exact model identifier; overrides family/tier when provided.
+ * Exact model identifier; overrides family/tier when provided. The
+ *
+ * @remarks
+ * `-edit` models accept reference images and are selectable only on
+ * `image_to_image`; the others only on `text_to_image`.
  */
 export const Id = {
   NanoBanana1: "nano-banana-1",
@@ -20,9 +24,20 @@ export const Id = {
   GptImage2: "gpt-image-2",
   IdeogramV4Base: "ideogram-v4-base",
   IdeogramV4Turbo: "ideogram-v4-turbo",
+  NanoBanana1Edit: "nano-banana-1-edit",
+  NanoBanana2Edit: "nano-banana-2-edit",
+  Flux2Klein9bEdit: "flux-2-klein-9b-edit",
+  Flux2ProEdit: "flux-2-pro-edit",
+  RecraftV3Edit: "recraft-v3-edit",
+  GptImage1MiniEdit: "gpt-image-1-mini-edit",
+  GptImage2Edit: "gpt-image-2-edit",
 } as const;
 /**
- * Exact model identifier; overrides family/tier when provided.
+ * Exact model identifier; overrides family/tier when provided. The
+ *
+ * @remarks
+ * `-edit` models accept reference images and are selectable only on
+ * `image_to_image`; the others only on `text_to_image`.
  */
 export type Id = ClosedEnum<typeof Id>;
 
@@ -37,7 +52,16 @@ export const Id$zodSchema = z.enum([
   "gpt-image-2",
   "ideogram-v4-base",
   "ideogram-v4-turbo",
-]).describe("Exact model identifier; overrides family/tier when provided.");
+  "nano-banana-1-edit",
+  "nano-banana-2-edit",
+  "flux-2-klein-9b-edit",
+  "flux-2-pro-edit",
+  "recraft-v3-edit",
+  "gpt-image-1-mini-edit",
+  "gpt-image-2-edit",
+]).describe(
+  "Exact model identifier; overrides family/tier when provided. The\n`-edit` models accept reference images and are selectable only on\n`image_to_image`; the others only on `text_to_image`.\n",
+);
 
 /**
  * Pin an exact model by ID, bypassing family/tier.
@@ -46,6 +70,6 @@ export type ModelById = { id: Id };
 
 export const ModelById$zodSchema: z.ZodType<ModelById> = z.object({
   id: Id$zodSchema.describe(
-    "Exact model identifier; overrides family/tier when provided.",
+    "Exact model identifier; overrides family/tier when provided. The\n`-edit` models accept reference images and are selectable only on\n`image_to_image`; the others only on `text_to_image`.\n",
   ),
 }).describe("Pin an exact model by ID, bypassing family/tier.");

@@ -7,6 +7,7 @@ import { buildCommand } from "@stricli/core";
 import { numberParser } from "@stricli/core";
 import * as z from "zod";
 import { consoleLoggerLevels } from "../../console-logger.js";
+import { mcpScopes } from "../../scopes.js";
 
 export const serveCommand = buildCommand({
   loader: async () => {
@@ -51,6 +52,13 @@ export const serveCommand = buildCommand({
         optional: true,
         parse: (value) => value.split(",").map(s => s.trim()),
       },
+      scope: {
+        kind: "enum",
+        brief: "Mount tools/resources that match given scope (repeatable flag)",
+        values: mcpScopes,
+        variadic: true,
+        optional: true,
+      },
       "api-key": {
         kind: "parsed",
         brief: "Sets the api_key auth field for the API",
@@ -62,6 +70,14 @@ export const serveCommand = buildCommand({
       "api-secret": {
         kind: "parsed",
         brief: "Sets the api_secret auth field for the API",
+        optional: true,
+        parse: (value) => {
+          return z.string().parse(value);
+        },
+      },
+      "o-auth2": {
+        kind: "parsed",
+        brief: "Sets the OAuth2 auth field for the API",
         optional: true,
         parse: (value) => {
           return z.string().parse(value);

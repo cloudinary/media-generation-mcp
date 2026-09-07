@@ -24,5 +24,7 @@ export const RateLimitedResponse$zodSchema: z.ZodType<RateLimitedResponse> = z
     limits: Limits$zodSchema.optional().describe(
       "Rate limit information for the account's add-on quotas.",
     ),
-    request_id: z.string(),
+    request_id: z.string().describe(
+      "Unique identifier for this request, for correlation and support.",
+    ),
   }).describe("Rate limited.");

@@ -15,7 +15,9 @@ export const ErrorResponse$zodSchema: z.ZodType<ErrorResponse> = z.object({
   error: ErrorT$zodSchema.describe(
     "Details of an error, including a coarse category for retry logic, a stable error code, and a human-readable message.",
   ),
-  request_id: z.string(),
+  request_id: z.string().describe(
+    "Unique identifier for this request, for correlation and support.",
+  ),
 }).describe(
   "Wrapper for error responses; includes the error object and a request_id for correlation.",
 );

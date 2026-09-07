@@ -12,14 +12,15 @@ const args = {
 };
 
 export const tool$tasksGetGenerationTaskStatus: ToolDefinition<typeof args> = {
-  name: "tasks-get-generation-task-status",
+  name: "get-generation-task",
   description: `Get a generation task
 
 Get the status of a generation task.`,
+  scopes: ["builder"],
   annotations: {
-    "title": "",
+    "title": "Get a Generation Task",
     "destructiveHint": false,
-    "idempotentHint": false,
+    "idempotentHint": true,
     "openWorldHint": false,
     "readOnlyHint": true,
   },

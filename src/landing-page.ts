@@ -42,17 +42,20 @@ export function landingPageHTML(origin: string): string {
       "--header",
       "api-secret:${API_SECRET}",
       "--header",
+      "o-auth2:${O_AUTH2}",
+      "--header",
       "cloud-name:${CLOUD_NAME}",
     ],
     "env": {
       "API_KEY": "YOUR_VALUE_HERE",
       "API_SECRET": "YOUR_VALUE_HERE",
+      "O_AUTH2": "YOUR_VALUE_HERE",
       "CLOUD_NAME": "YOUR_VALUE_HERE",
     },
   };
   const codexConfig = `[mcp_servers.CloudinaryMediaGeneration]
 url = "${o}/sse"
-http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "cloud-name" = "YOUR_CLOUD_NAME" }`;
+http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "o-auth2" = "YOUR_O_AUTH2", "cloud-name" = "YOUR_CLOUD_NAME" }`;
 
   return `
 <!DOCTYPE html>
@@ -690,7 +693,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
                   </svg>
                 </button>
                 <div class="popover-menu hidden" id="popover-menu">
-                  <a class="popover-button install-link" href="cursor://anysphere.cursor-deeplink/mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
+                  <a class="popover-button install-link" href="cursor://anysphere.cursor-deeplink/mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1vLWF1dGgyIiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
                     Cursor
                   </a>
                   <button class="popover-button" onclick="showModal('claude-code')">
@@ -699,7 +702,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
                   <button class="popover-button" onclick="showModal('claude-desktop')">
                     Claude Desktop
                   </button>
-                  <a class="popover-button install-link" href="vscode://ms-vscode.vscode-mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
+                  <a class="popover-button install-link" href="vscode://ms-vscode.vscode-mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1vLWF1dGgyIiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
                     VS Code
                   </a>
                   <button class="popover-button" onclick="showModal('gemini')">
@@ -722,7 +725,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
             </div>
           </header>
           <div class="install-targets">
-            <a tabindex="0" class="card install-target install-link" href="cursor://anysphere.cursor-deeplink/mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
+            <a tabindex="0" class="card install-target install-link" href="cursor://anysphere.cursor-deeplink/mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1vLWF1dGgyIiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
               <div class="target">
                 <img src="https://cursor.com/assets/images/logo.svg" alt="Cursor">
                 <span>Cursor</span>
@@ -744,7 +747,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
                 <span>Claude Desktop</span>
               </div>
             </div>
-            <a tabindex="0" class="card install-target install-link" href="vscode://ms-vscode.vscode-mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
+            <a tabindex="0" class="card install-target install-link" href="vscode://ms-vscode.vscode-mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1vLWF1dGgyIiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19">
               <div class="target">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
@@ -923,7 +926,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
               <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
             </svg>
           </button>
-          <code class="code-snippet language-json" id="claude-cli-cmd">claude mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --cloud-name </code>
+          <code class="code-snippet language-json" id="claude-cli-cmd">claude mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --o-auth2  --cloud-name </code>
         </div>
       </div>
     </div>
@@ -974,7 +977,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
               <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
             </svg>
           </button>
-          <code class="code-snippet language-json" id="gemini-config">gemini mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --cloud-name </code>
+          <code class="code-snippet language-json" id="gemini-config">gemini mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --o-auth2  --cloud-name </code>
         </div>
       </div>
     </div>

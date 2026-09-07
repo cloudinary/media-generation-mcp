@@ -251,14 +251,20 @@ export function resolveGlobalSecurity(
   let inputs: SecurityInput[][] = [
     [
       {
-        fieldName: "api_key",
         type: "http:custom",
-        value: security?.api_key || env().CLOUDINARY_API_KEY,
+        value: {
+          api_key: security?.cloudinaryAuth?.api_key
+            || env().CLOUDINARY_API_KEY,
+          api_secret: security?.cloudinaryAuth?.api_secret
+            || env().CLOUDINARY_API_SECRET,
+        },
       },
+    ],
+    [
       {
-        fieldName: "api_secret",
-        type: "http:custom",
-        value: security?.api_secret || env().CLOUDINARY_API_SECRET,
+        fieldName: "Authorization",
+        type: "oauth2",
+        value: security?.OAuth2 || env().CLOUDINARY_O_AUTH2,
       },
     ],
   ];
