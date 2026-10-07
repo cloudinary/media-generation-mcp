@@ -5,29 +5,31 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Image Generation API: Use the Image Generation API to generate images from text prompts using various AI models.
+Image Generation API: Use the Image Generation API to generate images from text prompts and reference images, using various AI models.
 
 The API supports Basic Authentication using your Cloudinary API Key and API Secret, which can be found on the [API Keys page](https://console.cloudinary.com/app/settings/api-keys) of your Cloudinary Console.
 
 **Key Features:**
 * **Unified API**: A single interface for generating images across multiple best-in-class AI models.
+* **Text-to-image**: Generate images from a text prompt.
+* **Image-to-image**: Generate images guided by one or more reference images and a text prompt.
 * **Cloudinary Integration**: Generated images are automatically available for delivery, transformation, and optimization through Cloudinary's platform.
 * **Future-proof**: Adopt new state-of-the-art models as they become available, without rebuilding your integration.
 
-**Supported Model Families:**
+**Model Families (`model.family` / `model.tier`):**
 * **flux**: Photorealistic images (FLUX.2 Klein 9B / FLUX.2 Pro).
 * **recraft**: Vector and illustration (Recraft V3 / Recraft V4).
 * **gpt-image**: Campaign and marketing images (GPT Image 1 Mini / GPT Image 2).
 * **nano-banana**: General purpose generation (Nano Banana 1 / Nano Banana 2).
 * **ideogram**: Realism, text rendering, and artistic generation (Ideogram V4).
 
+These families are the selection matrix, not the full roster: each family offers a
+`standard` and a `premium` tier. Many models are available only by `model.id` and
+belong to no family — see the `model.id` enum for the complete list.
+
 The Image Generation API requires the [Cloudinary Image Generation add-on](https://console.cloudinary.com/app/marketplace/details/image_generation).
 
 [Learn more](https://cloudinary.com/documentation/image_generation_addon)
-
-**Note**: 
-
-This is an early version of our Image Generation API. As the capability grows, certain features and endpoints may be adjusted. We invite you to try it out and share your [feedback with our support team](https://support.cloudinary.com/hc/en-us/requests/new).
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -48,9 +50,9 @@ This is an early version of our Image Generation API. As the capability grows, c
 <details>
 <summary>Claude Desktop</summary>
 
-Install the MCP server as a Desktop Extension using the pre-built [`mcp-server.mcpb`](https://github.com/cloudinary/media-generation-mcp/releases/download/v1.0.0/mcp-server.mcpb) file:
+Install the MCP server as a Desktop Extension using the pre-built [`mcp-server.mcpb`](https://github.com/cloudinary/media-generation-mcp/releases/download/v1.1.0/mcp-server.mcpb) file:
 
-Simply drag and drop the [`mcp-server.mcpb`](https://github.com/cloudinary/media-generation-mcp/releases/download/v1.0.0/mcp-server.mcpb) file onto Claude Desktop to install the extension.
+Simply drag and drop the [`mcp-server.mcpb`](https://github.com/cloudinary/media-generation-mcp/releases/download/v1.1.0/mcp-server.mcpb) file onto Claude Desktop to install the extension.
 
 The MCP bundle package includes the MCP server and all necessary configuration. Once installed, the server will be available without additional setup.
 
@@ -62,7 +64,7 @@ The MCP bundle package includes the MCP server and all necessary configuration. 
 <details>
 <summary>Cursor</summary>
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1vLWF1dGgyIiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19)
 
 Or manually:
 
@@ -81,6 +83,8 @@ Or manually:
     "",
     "--api-secret",
     "",
+    "--o-auth2",
+    "",
     "--cloud-name",
     ""
   ]
@@ -93,7 +97,7 @@ Or manually:
 <summary>Claude Code CLI</summary>
 
 ```bash
-claude mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --cloud-name 
+claude mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --o-auth2  --cloud-name 
 ```
 
 </details>
@@ -101,7 +105,7 @@ claude mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-
 <summary>Gemini</summary>
 
 ```bash
-gemini mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --cloud-name 
+gemini mcp add CloudinaryMediaGeneration -- npx -y @cloudinary/media-generation-mcp start --api-key  --api-secret  --o-auth2  --cloud-name 
 ```
 
 </details>
@@ -126,6 +130,8 @@ Refer to [Official Windsurf documentation](https://docs.windsurf.com/windsurf/ca
     "",
     "--api-secret",
     "",
+    "--o-auth2",
+    "",
     "--cloud-name",
     ""
   ]
@@ -135,7 +141,7 @@ Refer to [Official Windsurf documentation](https://docs.windsurf.com/windsurf/ca
 <details>
 <summary>VS Code</summary>
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20CloudinaryMediaGeneration%20MCP&color=0098FF)](vscode://ms-vscode.vscode-mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20CloudinaryMediaGeneration%20MCP&color=0098FF)](vscode://ms-vscode.vscode-mcp/install?name=CloudinaryMediaGeneration&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAY2xvdWRpbmFyeS9tZWRpYS1nZW5lcmF0aW9uLW1jcCIsInN0YXJ0IiwiLS1hcGkta2V5IiwiIiwiLS1hcGktc2VjcmV0IiwiIiwiLS1vLWF1dGgyIiwiIiwiLS1jbG91ZC1uYW1lIiwiIl19)
 
 Or manually:
 
@@ -155,6 +161,8 @@ Refer to [Official VS Code documentation](https://code.visualstudio.com/api/exte
     "",
     "--api-secret",
     "",
+    "--o-auth2",
+    "",
     "--cloud-name",
     ""
   ]
@@ -167,7 +175,7 @@ Refer to [Official VS Code documentation](https://code.visualstudio.com/api/exte
 To start the MCP server, run:
 
 ```bash
-npx @cloudinary/media-generation-mcp start --api-key  --api-secret  --cloud-name 
+npx @cloudinary/media-generation-mcp start --api-key  --api-secret  --o-auth2  --cloud-name 
 ```
 
 For a full list of server arguments, run:
@@ -245,8 +253,23 @@ In dynamic mode, the server registers only the following meta-tools instead of e
 - **`list_tools`**: Lists all available tools with their names and descriptions.
 - **`describe_tool_input`**: Returns the input schema for one or more tools by name.
 - **`execute_tool`**: Executes a tool by name with its arguments.
+- **`list_scopes`**: Lists the scopes available on the server.
 
 This approach significantly reduces the number of tokens sent to the LLM on each request, which is especially useful for servers with a large number of tools.
+
+You can combine dynamic mode with scope and tool filters:
+
+```jsonc
+{
+  "mcpServers": {
+    "CloudinaryMediaGeneration": {
+      "command": "npx",
+      "args": ["@cloudinary/media-generation-mcp", "start", "--mode", "dynamic", "--scope", "builder"],
+      // ... other server arguments
+    }
+  }
+}
+```
 <!-- End Progressive Discovery [dynamic-mode] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

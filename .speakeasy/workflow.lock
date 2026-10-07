@@ -1,18 +1,18 @@
-speakeasyVersion: 1.786.1
+speakeasyVersion: 1.800.1
 sources:
     Media-Generation-API-MCP-OAS:
         sourceNamespace: media-generation-api-mcp-oas
-        sourceRevisionDigest: sha256:30a84b75727f70ca73d257e96b3ff7bc3756fa3d84d27309c9bf12d2a0ee132d
-        sourceBlobDigest: sha256:23cef5a8a9359582c7cbd4b9f2951bd5187e2e891b357b94861e3d5f65e6f809
+        sourceRevisionDigest: sha256:58a9d4f55117d8c40c1f40dc9304777feeb8063f072246ae5a85d55bf4c8a5c2
+        sourceBlobDigest: sha256:458f95d4ac1087bc84d212d5c4c5757045d98cb35b93c31f116a9107bf6deecc
         tags:
             - latest
-            - 1.0.0
+            - 1.4.0
 targets:
     cloudinary-media-generation-mcp:
         source: Media-Generation-API-MCP-OAS
         sourceNamespace: media-generation-api-mcp-oas
-        sourceRevisionDigest: sha256:30a84b75727f70ca73d257e96b3ff7bc3756fa3d84d27309c9bf12d2a0ee132d
-        sourceBlobDigest: sha256:23cef5a8a9359582c7cbd4b9f2951bd5187e2e891b357b94861e3d5f65e6f809
+        sourceRevisionDigest: sha256:58a9d4f55117d8c40c1f40dc9304777feeb8063f072246ae5a85d55bf4c8a5c2
+        sourceBlobDigest: sha256:458f95d4ac1087bc84d212d5c4c5757045d98cb35b93c31f116a9107bf6deecc
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

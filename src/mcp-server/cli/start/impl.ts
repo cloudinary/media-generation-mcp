@@ -55,9 +55,15 @@ async function startStdio(flags: StartCommandFlags) {
     allowedTools: flags.tool,
     dynamic: flags.mode === "dynamic",
     annotationFilter: buildAnnotationFilter(flags["tool-annotations"]),
+    scopes: flags.scope,
     security: {
-      api_key: flags["api-key"] ?? "",
-      api_secret: flags["api-secret"] ?? "",
+      cloudinaryAuth: flags["api-key"] != null && flags["api-secret"] != null
+        ? {
+          api_key: flags["api-key"] ?? "",
+          api_secret: flags["api-secret"] ?? "",
+        }
+        : void 0,
+      OAuth2: flags["o-auth2"] ?? "",
     },
     cloud_name: flags["cloud-name"],
     serverURL: flags["server-url"],
@@ -103,6 +109,7 @@ async function startSSE(cliFlags: StartCommandFlags) {
       "api-key": (req.headers["api_key"] as string) ?? cliFlags["api-key"],
       "api-secret": (req.headers["api_secret"] as string)
         ?? cliFlags["api-secret"],
+      "o-auth2": (req.headers["oauth2"] as string) ?? cliFlags["o-auth2"],
     };
 
     // Create a new MCP server for this connection with its auth
@@ -111,9 +118,15 @@ async function startSSE(cliFlags: StartCommandFlags) {
       allowedTools: flags.tool,
       dynamic: flags.mode === "dynamic",
       annotationFilter: buildAnnotationFilter(flags["tool-annotations"]),
+      scopes: flags.scope,
       security: {
-        api_key: flags["api-key"] ?? "",
-        api_secret: flags["api-secret"] ?? "",
+        cloudinaryAuth: flags["api-key"] != null && flags["api-secret"] != null
+          ? {
+            api_key: flags["api-key"] ?? "",
+            api_secret: flags["api-secret"] ?? "",
+          }
+          : void 0,
+        OAuth2: flags["o-auth2"] ?? "",
       },
       cloud_name: flags["cloud-name"],
       serverURL: flags["server-url"],

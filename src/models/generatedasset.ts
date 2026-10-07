@@ -11,19 +11,19 @@ import { Storage, Storage$zodSchema } from "./storage.js";
 /**
  * The image format of the stored asset.
  */
-export const GeneratedAssetFormat = {
+export const Format = {
   Png: "png",
-  Jpg: "jpg",
+  Jpeg: "jpeg",
   Webp: "webp",
 } as const;
 /**
  * The image format of the stored asset.
  */
-export type GeneratedAssetFormat = ClosedEnum<typeof GeneratedAssetFormat>;
+export type Format = ClosedEnum<typeof Format>;
 
-export const GeneratedAssetFormat$zodSchema = z.enum([
+export const Format$zodSchema = z.enum([
   "png",
-  "jpg",
+  "jpeg",
   "webp",
 ]).describe("The image format of the stored asset.");
 
@@ -36,7 +36,7 @@ export const GeneratedAssetFormat$zodSchema = z.enum([
  */
 export type GeneratedAsset = {
   storage: Storage;
-  format?: GeneratedAssetFormat | undefined;
+  format?: Format | undefined;
   width?: number | undefined;
   height?: number | undefined;
   bytes?: number | undefined;
@@ -52,7 +52,7 @@ export const GeneratedAsset$zodSchema: z.ZodType<GeneratedAsset> = z.object({
   created_at: z.iso.datetime({ offset: true }).optional().describe(
     "The timestamp when the image was generated.",
   ),
-  format: GeneratedAssetFormat$zodSchema.optional().describe(
+  format: Format$zodSchema.optional().describe(
     "The image format of the stored asset.",
   ),
   height: z.int().optional().describe(

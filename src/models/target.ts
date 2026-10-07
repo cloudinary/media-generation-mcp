@@ -17,7 +17,7 @@ import {
  * Where to store the generated output, determined by `target_type`.
  *
  * @remarks
- * Optional; defaults to a `temporary` target when omitted.
+ * Optional; defaults to a `managed_asset` target when omitted.
  */
 export type Target =
   | (ManagedAssetTarget & { target_type: "managed_asset" })
@@ -35,5 +35,5 @@ export const Target$zodSchema: z.ZodType<Target> = z.union([
     }).transform((v) => ({ target_type: v.target_type })),
   ),
 ]).describe(
-  "Where to store the generated output, determined by `target_type`.\nOptional; defaults to a `temporary` target when omitted.\n",
+  "Where to store the generated output, determined by `target_type`.\nOptional; defaults to a `managed_asset` target when omitted.\n",
 );

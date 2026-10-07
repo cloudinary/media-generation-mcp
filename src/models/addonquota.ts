@@ -11,20 +11,18 @@ import { Feature, Feature$zodSchema } from "./feature.js";
  */
 export type AddonQuota = {
   type: Feature;
-  used_by_request?: number | null | undefined;
-  remaining?: number | null | undefined;
-  limit?: number | null | undefined;
+  used_by_request: number | null;
+  remaining: number | null;
+  limit: number | null;
 };
 
 export const AddonQuota$zodSchema: z.ZodType<AddonQuota> = z.object({
-  limit: z.int().nullable().optional().describe(
-    "Maximum generations allowed per period.",
-  ),
-  remaining: z.int().nullable().optional().describe(
+  limit: z.int().nullable().describe("Maximum generations allowed per period."),
+  remaining: z.int().nullable().describe(
     "Generations remaining in the current period.",
   ),
   type: Feature$zodSchema.describe("The add-on a quota applies to."),
-  used_by_request: z.int().nullable().optional().describe(
+  used_by_request: z.int().nullable().describe(
     "Number of generations consumed by this request.",
   ),
 }).describe("Quota usage for a single add-on.");
