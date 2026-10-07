@@ -14,17 +14,22 @@ type OAuth2PasswordFlow = {
   tokenURL: string;
 };
 
-export enum SecurityErrorCode {
-  Incomplete = "incomplete",
-  UnrecognisedSecurityType = "unrecognized_security_type",
-}
+export const SecurityErrorCode = {
+  Incomplete: "incomplete",
+  UnrecognisedSecurityType: "unrecognized_security_type",
+} as const;
+export type SecurityErrorCode =
+  (typeof SecurityErrorCode)[keyof typeof SecurityErrorCode];
 
 export class SecurityError extends Error {
+  public code: SecurityErrorCode;
+
   constructor(
-    public code: SecurityErrorCode,
+    code: SecurityErrorCode,
     message: string,
   ) {
     super(message);
+    this.code = code;
     this.name = "SecurityError";
   }
 
@@ -246,14 +251,20 @@ export function resolveGlobalSecurity(
   let inputs: SecurityInput[][] = [
     [
       {
-        fieldName: "api_key",
         type: "http:custom",
-        value: security?.api_key || env().CLOUDINARY_API_KEY,
+        value: {
+          api_key: security?.cloudinaryAuth?.api_key
+            || env().CLOUDINARY_API_KEY,
+          api_secret: security?.cloudinaryAuth?.api_secret
+            || env().CLOUDINARY_API_SECRET,
+        },
       },
+    ],
+    [
       {
-        fieldName: "api_secret",
-        type: "http:custom",
-        value: security?.api_secret || env().CLOUDINARY_API_SECRET,
+        fieldName: "Authorization",
+        type: "oauth2",
+        value: security?.OAuth2 || env().CLOUDINARY_O_AUTH2,
       },
     ],
   ];

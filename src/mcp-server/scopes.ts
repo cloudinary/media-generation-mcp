@@ -3,6 +3,8 @@
  * @generated-id: 8966d24256b2
  */
 
-export const mcpScopes = [] as const;
+export const mcpScopes = [
+  "builder",
+] as const;
 
 export type MCPScope = (typeof mcpScopes)[number];

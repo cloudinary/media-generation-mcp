@@ -6,24 +6,30 @@
 import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * Discriminator identifying this as a temporary target.
+ */
 export const TemporaryTargetTargetType = {
   Temporary: "temporary",
 } as const;
+/**
+ * Discriminator identifying this as a temporary target.
+ */
 export type TemporaryTargetTargetType = ClosedEnum<
   typeof TemporaryTargetTargetType
 >;
 
 export const TemporaryTargetTargetType$zodSchema = z.enum([
   "temporary",
-]);
+]).describe("Discriminator identifying this as a temporary target.");
 
 /**
- * Store the output as a short-lived asset on the upload service (the default).
+ * Store the output as a short-lived asset on the upload service.
  */
 export type TemporaryTarget = { target_type: TemporaryTargetTargetType };
 
 export const TemporaryTarget$zodSchema: z.ZodType<TemporaryTarget> = z.object({
-  target_type: TemporaryTargetTargetType$zodSchema,
-}).describe(
-  "Store the output as a short-lived asset on the upload service (the default).",
-);
+  target_type: TemporaryTargetTargetType$zodSchema.describe(
+    "Discriminator identifying this as a temporary target.",
+  ),
+}).describe("Store the output as a short-lived asset on the upload service.");

@@ -6,16 +6,22 @@
 import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * Discriminator identifying this as temporary storage.
+ */
 export const TemporaryStorageStorageType = {
   Temporary: "temporary",
 } as const;
+/**
+ * Discriminator identifying this as temporary storage.
+ */
 export type TemporaryStorageStorageType = ClosedEnum<
   typeof TemporaryStorageStorageType
 >;
 
 export const TemporaryStorageStorageType$zodSchema = z.enum([
   "temporary",
-]);
+]).describe("Discriminator identifying this as temporary storage.");
 
 /**
  * A generated asset stored as a short-lived asset on the upload service.
@@ -32,7 +38,9 @@ export const TemporaryStorage$zodSchema: z.ZodType<TemporaryStorage> = z.object(
       "Time in UTC when secure_url stops being valid.",
     ),
     secure_url: z.string().describe("The URL to fetch the generated asset."),
-    storage_type: TemporaryStorageStorageType$zodSchema,
+    storage_type: TemporaryStorageStorageType$zodSchema.describe(
+      "Discriminator identifying this as temporary storage.",
+    ),
   },
 ).describe(
   "A generated asset stored as a short-lived asset on the upload service.",

@@ -6,16 +6,22 @@
 import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * Discriminator identifying this as managed-asset storage.
+ */
 export const ManagedAssetStorageStorageType = {
   ManagedAsset: "managed_asset",
 } as const;
+/**
+ * Discriminator identifying this as managed-asset storage.
+ */
 export type ManagedAssetStorageStorageType = ClosedEnum<
   typeof ManagedAssetStorageStorageType
 >;
 
 export const ManagedAssetStorageStorageType$zodSchema = z.enum([
   "managed_asset",
-]);
+]).describe("Discriminator identifying this as managed-asset storage.");
 
 /**
  * Cloudinary resource type of the stored asset.
@@ -63,7 +69,9 @@ export const ManagedAssetStorage$zodSchema: z.ZodType<ManagedAssetStorage> = z
       "Cloudinary resource type of the stored asset.",
     ),
     secure_url: z.string().describe("The URL to fetch the generated asset."),
-    storage_type: ManagedAssetStorageStorageType$zodSchema,
+    storage_type: ManagedAssetStorageStorageType$zodSchema.describe(
+      "Discriminator identifying this as managed-asset storage.",
+    ),
     type: z.string().describe(
       "Cloudinary delivery type of the stored asset (e.g. `upload`, `private`, `authenticated`).",
     ),
