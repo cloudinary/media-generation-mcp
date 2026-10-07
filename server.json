@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.cloudinary/media-generation-mcp",
   "title": "Cloudinary Media Generation",
-  "description": "Generate images from text prompts using AI models including FLUX, Recraft, GPT Image, and Nano Banana.",
+  "description": "Generate and edit images with AI from text prompts and reference images, saved to Cloudinary.",
   "repository": {
     "url": "https://github.com/cloudinary/media-generation-mcp",
     "source": "github"

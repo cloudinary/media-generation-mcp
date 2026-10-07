@@ -92,7 +92,7 @@ mcp-typescript:
       - generation
       - media
     license: MIT
-    long_description: A comprehensive MCP server for Cloudinary's Media Generation API. Generate images from text prompts using various AI models including FLUX, Recraft, GPT Image, and Nano Banana.
+    long_description: A comprehensive MCP server for Cloudinary's Media Generation API. Generate and edit images with AI from text prompts and reference images, saved to Cloudinary.
     privacy_policies:
       - https://cloudinary.com/privacy
     repository:
