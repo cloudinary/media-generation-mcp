@@ -37,7 +37,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "CloudinaryMediaGeneration",
-    version: "1.1.0",
+    version: "1.1.1",
     ...serverInfo,
   }, { instructions });
 

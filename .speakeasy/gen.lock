@@ -5,15 +5,15 @@ management:
   docVersion: 1.4.0
   speakeasyVersion: 1.800.1
   generationVersion: 2.943.0
-  releaseVersion: 1.1.0
-  configChecksum: cab7c094b3f555657d6b66e2905323c7
+  releaseVersion: 1.1.1
+  configChecksum: ce2fba9faef89314c0bf36e154b3a8a6
   repoURL: https://github.com/cloudinary/media-generation-mcp.git
   installationURL: https://github.com/cloudinary/media-generation-mcp
   published: true
 persistentEdits:
-  generation_id: c0cdc4e7-d94f-4797-a42a-33e9d53f5b0b
-  pristine_commit_hash: 164cfdc4b63168234f4220815802bf6e4156ca55
-  pristine_tree_hash: c9bc04720c9ac700beece6b7e73df1dcfe41bad1
+  generation_id: 28da9bff-f6ca-408a-b3cb-acd0ec7e077b
+  pristine_commit_hash: 27be8c9765bf6c1b7e7aad62def8927949c0eb5c
+  pristine_tree_hash: 20160e6182a8b72f1fa2bbbba3724720fb98b75c
 features:
   mcp-typescript:
     additionalDependencies: 0.1.0
@@ -52,12 +52,12 @@ trackedFiles:
     pristine_git_object: 4f9e60a9462fc4def738d60c3aaadf8232ef185f
   manifest.json:
     id: ca642a226869
-    last_write_checksum: sha1:3094a394987272e71e547b366da5aee5076a824e
-    pristine_git_object: cfc72bddb55a0796a7052e747f397ab00c12bd72
+    last_write_checksum: sha1:999c3187814703d167ff93b217f896c38d3e4f19
+    pristine_git_object: a18bde88b42acccd341ff7f11918de4c77c2552d
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:5353b29e8cde7016c57c3a814a445efa3dd56898
-    pristine_git_object: a32c7d30a109ef1974f510fe6fe684d766d1bda6
+    last_write_checksum: sha1:02bb8d526cc02502d327c9e6751178ef1f8e6943
+    pristine_git_object: 342d2b8d36ece460887608ed23f26022c99e54db
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:755be55c7e40769bfd989592b46365601e7420dd
@@ -88,16 +88,16 @@ trackedFiles:
     pristine_git_object: ccd5e5d812cb4d21a1013c89f04daad9d2f72190
   src/landing-page.ts:
     id: ef64a6ee46d7
-    last_write_checksum: sha1:4db3d3281a64df1c3806cf8956af403bf1b8a044
-    pristine_git_object: 81fb464841f941783110f884422a2381ed456b1b
+    last_write_checksum: sha1:eda8abf1b466dcb97a034c6fe7e8f260d6e81840
+    pristine_git_object: 8b9b16142ac01750a68f473068323230ec23acbc
   src/lib/base64.ts:
     id: "598522066688"
     last_write_checksum: sha1:716fa8938b85035068c8bc0586e92aa17f8e21a2
     pristine_git_object: b45f432798e2151eee7f6eb4df628b7310942c01
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ca7ded1f2cbf9e993eab4580deb48b3dcf4bdf0c
-    pristine_git_object: 805dca7ebfcfb1ae1c1eb126389849bc69110ff6
+    last_write_checksum: sha1:442d9fa19c07c358c8f19aad7047c84e348dc1ab
+    pristine_git_object: f70dc3cf0bf2a5a3c766aeca6610da5e95cf939e
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:73dbff8f71fbbc62b58fb98d03fc0dee847fe96b
@@ -184,8 +184,8 @@ trackedFiles:
     pristine_git_object: 82cf3fc49c82e91d7e310dffc367daf85975739d
   src/mcp-server/mcp-server.ts:
     id: aabbc4ab07c1
-    last_write_checksum: sha1:8e409f78bb8f60ad4ca21c7ad6b8a9942f8b1563
-    pristine_git_object: 2134e60f9d49b00e24c52203d63022592dc6771d
+    last_write_checksum: sha1:79b8fb9f747d1668ff698f89e144d4ad7ee8b4c5
+    pristine_git_object: ab5abba5ba7c3225c16b366eb1cbac321dfb1f38
   src/mcp-server/prompts.ts:
     id: 26f3d73cbf31
     last_write_checksum: sha1:fa139cb3756dcfa34998e7e647d0e00cfe0e05c4
@@ -200,8 +200,8 @@ trackedFiles:
     pristine_git_object: ea2782667930033c46be66163efd7dab6bfcaeca
   src/mcp-server/server.ts:
     id: 2784dd48e82a
-    last_write_checksum: sha1:59a82d1dfa877395bb317d1d52a90bcc05b4798a
-    pristine_git_object: 71f426341faefbfbbf269d97cffc17cc9f9a5d88
+    last_write_checksum: sha1:7a912cce99bb806a83f35432f8344b935089e6fb
+    pristine_git_object: 2b417802dc0c66f0fcfae99017425d4302337158
   src/mcp-server/shared.ts:
     id: 074e80d4be1e
     last_write_checksum: sha1:89d816c34ea71049cbf484f9704239e5372858f1
@@ -701,4 +701,3 @@ examples:
         "500":
           application/json: {"error": {"category": "user_error", "code": "MG_00001", "message": "missing parameters", "details": {}}, "notices": [{"severity": "warning", "text": "You've used 40 of your 50 Image Generation credits. 10 remain. Tell the user the balance is nearly spent, do not estimate how many images it covers, and show them: https://console.cloudinary.com/app/image/generation/plans"}], "request_id": "17c3b70c5096df0e77e838323abb7029"}
 examplesVersion: 1.0.2
-releaseNotes: "## Mcp-typescript SDK Changes:\n* `CloudinaryMediaGeneration.Generation.generate_image()`: \n  *  `request.model` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n* `CloudinaryMediaGeneration.Tasks.get_generation_task_status()`:  `response` **Changed** (Breaking ⚠️)\n* `CloudinaryMediaGeneration.Generation.generate_image_from_images()`: **Added**\n"

@@ -942,7 +942,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "api-secret" = "YOUR_API_SECRET", "
         <h1>Instructions</h1>
         <p>One-click installation for Claude Desktop users</p>
         <div class="instruction-item">
-          <a href="https://github.com/cloudinary/media-generation-mcp/releases/download/v1.1.0/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
+          <a href="https://github.com/cloudinary/media-generation-mcp/releases/download/v1.1.1/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
             📥 Download MCP Bundle
           </a>
         </div>
