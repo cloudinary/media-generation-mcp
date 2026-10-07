@@ -17,7 +17,7 @@
     "media"
   ],
   "license": "MIT",
-  "long_description": "A comprehensive MCP server for Cloudinary's Media Generation API. Generate images from text prompts using various AI models including FLUX, Recraft, GPT Image, and Nano Banana.",
+  "long_description": "A comprehensive MCP server for Cloudinary's Media Generation API. Generate and edit images with AI from text prompts and reference images, saved to Cloudinary.",
   "manifest_version": "0.3",
   "name": "@cloudinary/media-generation-mcp",
   "privacy_policies": [
@@ -79,7 +79,7 @@
       "sensitive": true
     }
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "tools": [
     {
       "name": "generate-image",
