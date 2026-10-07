@@ -489,12 +489,24 @@ export function buildSDK(
       cliFlags["api-secret"],
       disableStaticAuth,
     ),
+    "o-auth2": resolveHeader(
+      headers,
+      "o-auth2",
+      z.string(),
+      cliFlags["o-auth2"],
+      disableStaticAuth,
+    ),
   };
 
   return new CloudinaryMediaGenerationCore({
     security: {
-      api_key: flags["api-key"] ?? "",
-      api_secret: flags["api-secret"] ?? "",
+      cloudinaryAuth: flags["api-key"] != null && flags["api-secret"] != null
+        ? {
+          api_key: flags["api-key"] ?? "",
+          api_secret: flags["api-secret"] ?? "",
+        }
+        : void 0,
+      OAuth2: flags["o-auth2"] ?? "",
     },
     serverURL: cliFlags["server-url"],
     cloud_name: resolveHeader(

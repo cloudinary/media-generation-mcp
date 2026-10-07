@@ -7,7 +7,13 @@ import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * The status of an async task.
+ * The status of an async generation task.
+ *
+ * @remarks
+ * * `pending`: accepted and queued, not yet started.
+ * * `processing`: generation is in progress.
+ * * `completed`: generation finished; `result` is populated.
+ * * `failed`: generation did not complete successfully.
  */
 export const TaskStatus = {
   Pending: "pending",
@@ -16,7 +22,13 @@ export const TaskStatus = {
   Failed: "failed",
 } as const;
 /**
- * The status of an async task.
+ * The status of an async generation task.
+ *
+ * @remarks
+ * * `pending`: accepted and queued, not yet started.
+ * * `processing`: generation is in progress.
+ * * `completed`: generation finished; `result` is populated.
+ * * `failed`: generation did not complete successfully.
  */
 export type TaskStatus = ClosedEnum<typeof TaskStatus>;
 
@@ -25,4 +37,6 @@ export const TaskStatus$zodSchema = z.enum([
   "processing",
   "completed",
   "failed",
-]).describe("The status of an async task.");
+]).describe(
+  "The status of an async generation task.\n* `pending`: accepted and queued, not yet started.\n* `processing`: generation is in progress.\n* `completed`: generation finished; `result` is populated.\n* `failed`: generation did not complete successfully.\n",
+);

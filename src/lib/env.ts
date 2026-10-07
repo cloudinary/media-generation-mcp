@@ -9,6 +9,7 @@ import { SDKOptions } from "./config.js";
 export interface Env {
   CLOUDINARY_API_KEY?: string | undefined;
   CLOUDINARY_API_SECRET?: string | undefined;
+  CLOUDINARY_O_AUTH2?: string | undefined;
 
   /**
    * Sets the cloud_name parameter for all supported operations
@@ -21,6 +22,7 @@ export interface Env {
 export const envSchema: z.ZodType<Env> = z.object({
   CLOUDINARY_API_KEY: z.string().optional(),
   CLOUDINARY_API_SECRET: z.string().optional(),
+  CLOUDINARY_O_AUTH2: z.string().optional(),
 
   CLOUDINARY_CLOUD_NAME: z.string().optional(),
 

@@ -7,12 +7,12 @@
     "url": "https://github.com/cloudinary/media-generation-mcp",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@cloudinary/media-generation-mcp",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "transport": {
         "type": "stdio"
       },
@@ -39,7 +39,7 @@
     },
     {
       "registryType": "oci",
-      "identifier": "docker.io/cloudinary/media-generation-mcp:1.0.0",
+      "identifier": "docker.io/cloudinary/media-generation-mcp:1.1.0",
       "transport": {
         "type": "stdio"
       },

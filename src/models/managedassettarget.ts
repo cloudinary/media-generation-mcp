@@ -6,19 +6,25 @@
 import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * Discriminator identifying this as a managed-asset target.
+ */
 export const ManagedAssetTargetTargetType = {
   ManagedAsset: "managed_asset",
 } as const;
+/**
+ * Discriminator identifying this as a managed-asset target.
+ */
 export type ManagedAssetTargetTargetType = ClosedEnum<
   typeof ManagedAssetTargetTargetType
 >;
 
 export const ManagedAssetTargetTargetType$zodSchema = z.enum([
   "managed_asset",
-]);
+]).describe("Discriminator identifying this as a managed-asset target.");
 
 /**
- * Store the output as a permanent managed asset in your Cloudinary product environment.
+ * Store the output as a permanent managed asset in your Cloudinary product environment (the default).
  */
 export type ManagedAssetTarget = {
   target_type: ManagedAssetTargetTargetType;
@@ -31,10 +37,12 @@ export const ManagedAssetTarget$zodSchema: z.ZodType<ManagedAssetTarget> = z
     public_id: z.string().optional().describe(
       "Public ID to store the asset under. Auto-assigned when omitted.",
     ),
-    target_type: ManagedAssetTargetTargetType$zodSchema,
+    target_type: ManagedAssetTargetTargetType$zodSchema.describe(
+      "Discriminator identifying this as a managed-asset target.",
+    ),
     upload_preset: z.string().optional().describe(
       "Upload preset to apply. Uses the product environment's default when omitted.",
     ),
   }).describe(
-    "Store the output as a permanent managed asset in your Cloudinary product environment.",
+    "Store the output as a permanent managed asset in your Cloudinary product environment (the default).",
   );
